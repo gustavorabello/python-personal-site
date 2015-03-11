@@ -224,6 +224,7 @@ footer{
 .banner nav li{
     list-style-type: none;
     float: left;
+	margin-left:0;
 }
 
 .banner nav li a.button{
