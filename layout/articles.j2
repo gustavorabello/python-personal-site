@@ -1,0 +1,24 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import render_article with context  %}
+
+{% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/publications.css') }}">
+</head>
+
+<div id="page">
+
+{% set years = range(2015, 2004, -1) -%}
+{% for year in years -%}
+<h1> {{ year }} </h1>
+
+{% for res in resource.node.walk_resources_sorted_by_time() if res.meta.Year == year -%}
+ {{ render_article(res) }}
+{% endfor %}
+
+{% endfor %}
+
+</div>
+
+{% endblock %}
+

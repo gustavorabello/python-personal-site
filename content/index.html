@@ -1,0 +1,55 @@
+---
+extends: base.j2
+default_block: main
+title: Gustavo R Anjos - Personal website
+description: Home page for the BASIC hyde template
+---
+
+<div class="left">
+<img src="{{ media_url('images/guga.jpg') }}"  border="1" height="300px">
+
+<p> I've been organizing this web page to make easy to you know a little
+bit of my life and what I'm currently working on. My research field is
+numerical simulation of two-phase flow. During my doctoral studies, I'd
+been working in the discretization of the Navier-Stokes's equations with
+a special modelling to describe intefacial forces in two-phase flows
+through the Finite Element Method. The in-house numerical code is
+designed by modern and flexible object-oriented languages: (<a
+ href="http://en.wikipedia.org/wiki/C%2B%2B">C++</a>) and (<a
+ href="http://www.python.org">Python</a>) which allows easy maintenance
+and further development. The Ph.D. thesis can be found <a href="{{
+ STATIC_URL }}pdf/gustavoPhD2012.pdf">here</a>, which was selected to be
+among the 5-10% best thesis written at EPFL in 2012 (<a href="{{
+ STATIC_URL }}pdf/prixPhd.pdf">more info</a>). From Aug. 2012 to Aug.
+2013 I worked as a Post-Doc Associated in Nuclear Science & Engineering
+(<a href="http://web.mit.edu/nse">NSE</a>) at the Massachusetts
+Institute of Technology (<a href="http://www.mit.edu">MIT</a>) in
+Cambridge/Boston area. The aim of the Post-Doc position was to benchmark
+the boiling/condensation experimental database using a commercial
+front-capturing code available in the laboratory. In Sep. 2013 I finally
+returned to Brazil as Post-Doc assistent sponsored by the brazilian
+agency CAPES/Ciencias sem Fronteiras - Young Talent Fellowship.
+Currently I am adjunct professor in Mechanical Engineering at the State
+University of Rio de Janeiro (<a href="http://www.uerj.br">UERJ</a>)
+</p>
+
+</div>
+
+<div class="right">
+
+{% from "macros.j2" import render_excerpt with context %}
+<section class="blog_excerpt">
+{% set latest = site.content.walk_resources_sorted_by_time()|first %}
+
+{% if latest -%}
+{{ render_excerpt(latest, 'post') }}
+
+<a class="button white medium"
+    href="{{ content_url(latest.url) }}">Read more&hellip;</a>
+
+{%- endif %}
+
+</section>
+
+</div>
+
