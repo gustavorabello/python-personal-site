@@ -1,0 +1,26 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import render_tab with context  %}
+
+{% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/music.css') }}">
+</head>
+
+<div id="twoColumns">
+
+{% set counter = 1 -%}
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+ {% if res.meta.Artist != artistname %}
+  <h1> {{ res.meta.Artist }} </h1>
+  {{ render_tab(res) }}
+ {% else %}
+  {{ render_tab(res) }}
+ {% endif %}
+ {% set artistname = res.meta.Artist -%}
+ {% set counter = counter + 1 -%}
+{% endfor %}
+
+</div>
+
+{% endblock %}
+

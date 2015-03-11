@@ -99,3 +99,8 @@
   </div>
  </div>
 {% endmacro %}
+
+{% macro render_tab(res, class=None) %}
+	<li><a href="{{ media_url(res.meta.Dir) }}">{{ res.meta.Title }}</a></li>
+{% endmacro %}
+
