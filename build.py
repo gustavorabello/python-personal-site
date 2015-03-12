@@ -163,11 +163,10 @@ def populateVideoDB():
   file.write("\n")
   file.write("\n")
   file.write("{% mark excerpt -%}\n")
-  file.write(description[0:400])
+  file.write(description[0:320])
   file.write("\n")
   file.write("{% endmark %}\n")
-  file.write("\n")
-  file.write(description[401:])
+  file.write(description[320:])
   file.write("\n")
   file.close()
   count = count + 1
