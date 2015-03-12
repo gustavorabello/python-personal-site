@@ -27,7 +27,6 @@
  font-weight:none; 
  color:blue;
  border-bottom: 2px solid red;
- width: 45%;
  margin-top:10px;
  margin-bottom:10px;
 }
@@ -40,12 +39,13 @@
 
 #twoColumns .left
 { 
- width:40%;
+ width:48%;
 }
 
 #twoColumns .right
 { 
- width:45%;
+ width:48%;
+ margin-left:20px;
 }
 
 #twoColumns li

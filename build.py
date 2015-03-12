@@ -153,10 +153,11 @@ def populateMusicDB():
  dirname = 'content/media/html/tabs/'
 
  print ""
- print " ************************************* "
- print " *  Adding entries to the database:  * "
+ print " *************************************** "
+ print " *   Adding entries to music folder:   * "
  print ""
 
+ count = 1
  # loop all artist's folder
  for artistname in os.listdir(dirname):
   # loop inside each folder
@@ -187,11 +188,23 @@ def populateMusicDB():
       # function: toquinho E Vinicius --> Toquinho E Vinicius
       artist += name.title() + " "
  
-     print "   " + songname + " " + artist + " " + artistname
+     savedir = "content/music/" + artistname + "/"
+     if not os.path.exists(savedir):
+      os.makedirs(savedir)
+
+     file = open(savedir + basename + ".html",'w')
+     file.write("---\n")
+     file.write("Artist: " + artist + "\n")
+     file.write("Title: " + songname + "\n")
+     file.write("Dir: html/tabs/" + artistname + "/" + basename + ".html\n")
+     file.write("---\n")
+     file.close()
+     count = count + 1
  
  print ""
- print " *  Entries in the database ADDED:   * "
- print " ************************************* "
+ print " *  Total number of musics: " + str(count) + "        * "
+ print " *  Finished: music folder completed:  * "
+ print " *************************************** "
  print ""
 
 def main():

@@ -9,17 +9,51 @@
 <div id="twoColumns">
 
 {% set counter = 1 -%}
-{% for res in resource.node.walk_resources_sorted_by_time() %}
- {% if res.meta.Artist != artistname %}
-  <h1> {{ res.meta.Artist }} </h1>
-  {{ render_tab(res) }}
- {% else %}
-  {{ render_tab(res) }}
- {% endif %}
- {% set artistname = res.meta.Artist -%}
- {% set counter = counter + 1 -%}
-{% endfor %}
+{% set max = 146 -%}
+{% set half = max/2 -%}
 
+
+{% for res in resource.node.walk_resources_sorted_by_time() %} 
+{% if counter < half+1 %}
+
+   {% if counter == 1  %}
+    <div class="left">
+   {% endif %}
+
+   {% if res.meta.Artist != artistname %}
+    <h1> {{ res.meta.Artist }} </h1>
+    {{ render_tab(res) }}
+   {% else %}
+    {{ render_tab(res) }}
+   {% endif %}
+
+   {% if counter == half  %}
+    </div>
+   {% endif %}
+
+   {% set artistname = res.meta.Artist -%}
+   {% set counter = counter + 1 -%}
+
+
+
+{% else %}
+
+   {% if counter == half+1 %}
+    <div class="right">
+   {% endif %}
+
+   {% if res.meta.Artist != artistname %}
+    <h1> {{ res.meta.Artist }} </h1>
+    {{ render_tab(res) }}
+   {% else %}
+    {{ render_tab(res) }}
+   {% endif %}
+
+   {% set artistname = res.meta.Artist -%}
+   {% set counter = counter + 1 -%}
+
+{% endif %}
+{% endfor %}
 </div>
 
 {% endblock %}
