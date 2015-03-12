@@ -132,6 +132,7 @@ def populateVideoDB():
  #
  # Add if condition to check internet connection!
  #
+ count = 1
  yt_service = gdata.youtube.service.YouTubeService()
  pl_id = 'A5C4DB7CAE7AF003'
  playlist_video_feed = yt_service.GetYouTubePlaylistVideoFeed(playlist_id=pl_id)
@@ -139,11 +140,40 @@ def populateVideoDB():
   title =  entry.media.title.text
   youtube = 'http://www.youtube.com/embed/%s' % entry.media.player.url[32:43]
   description = entry.media.description.text
+  date = entry.published.text[:10] + " " + entry.published.text[11:19] 
+  #keywords = entry.media.keywords.text # not working
   duration = entry.media.duration.seconds
 
-  print "   " + title + " " + youtube + " " + description + " " + duration
+  savedir = "content/videos/" 
+
+  file = open(savedir + str(count) + ".html",'w')
+  file.write("---\n")
+  file.write("title: " + title + "\n")
+  file.write("duration: " + duration + "\n")
+  file.write("created: !!timestamp '" + date + "'\n")
+  file.write("tags: \n")
+  file.write("    - two-phase \n")
+  file.write("---\n")
+  file.write("\n")
+  file.write("{% mark video -%}\n")
+  file.write("\n")
+  file.write("<iframe src=\"" + youtube + "\" frameborder=\"1\" allowfullscreen></iframe> \n")
+  file.write("\n")
+  file.write("{% endmark %}\n")
+  file.write("\n")
+  file.write("\n")
+  file.write("{% mark excerpt -%}\n")
+  file.write(description[0:400])
+  file.write("\n")
+  file.write("{% endmark %}\n")
+  file.write("\n")
+  file.write(description[401:])
+  file.write("\n")
+  file.close()
+  count = count + 1
     
  print ""
+ print " *  Total number of videos: " + str(count) + "        * "
  print " *  Entries in the database ADDED:   * "
  print " ************************************* "
  print ""
