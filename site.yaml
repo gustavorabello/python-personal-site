@@ -42,11 +42,11 @@ context:
                 type: node
                 url: publications
             -
-                name: Misc
-                description: Misc 
-                css_class: misc
+                name: Tools
+                description: Tools
+                css_class: tools 
                 type: node
-                url: blog
+                url: tools
             -
                 name: Images
                 description: Images

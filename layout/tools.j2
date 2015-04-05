@@ -1,0 +1,16 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import render_misc with context  %}
+
+{% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/tools.css') }}">
+</head>
+
+{% for res in resource.node.walk_resources_sorted_by_time() -%}
+<div id="item">
+ {{ render_misc(res) }}
+</div>
+{% endfor %}
+
+{% endblock %}
+

@@ -1,17 +1,14 @@
 {% extends "base.j2" %}
-{% from "macros.j2" import render_excerpt with context  %}
+{% from "macros.j2" import render_course with context  %}
 
 {% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/education.css') }}">
+</head>
 
-{% block page_title %}
-  <h1 class="title">{{ resource.meta.title }}</h1>
-{% endblock %}
-
-<ul class="sequence clearfix">
 {% for res in resource.node.walk_resources_sorted_by_time() %}
-<li>
-    {{ render_excerpt(res) }}
-</li>
+<div id="item">
+    {{ render_course(res) }}
+</div>
 {% endfor %}
-</ul>
 {% endblock %}

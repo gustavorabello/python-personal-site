@@ -202,7 +202,7 @@ footer{
 }
 
 .banner{
-    border-bottom: 12px solid #222;
+    border-bottom: 8px solid #222;
     padding: 0 12px;
     position: relative;
 }
@@ -219,7 +219,7 @@ footer{
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 52px;
+    margin-bottom: 62px;
 }
 
 .banner nav{
