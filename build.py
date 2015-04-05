@@ -217,7 +217,7 @@ def populateMusicDB():
       # function: toquinho E Vinicius --> Toquinho E Vinicius
       artist += name.title() + " "
  
-     savedir = "content/music/" + artistname + "/"
+     savedir = "content/musics/" + artistname + "/"
      if not os.path.exists(savedir):
       os.makedirs(savedir)
 

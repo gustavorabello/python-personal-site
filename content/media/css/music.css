@@ -39,12 +39,13 @@
 
 #twoColumns .left
 { 
- width:48%;
+ width:45%;
 }
 
 #twoColumns .right
 { 
- width:48%;
+ display: inline-block;
+ width:46%;
  margin-left:20px;
 }
 

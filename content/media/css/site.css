@@ -17,9 +17,14 @@ p
  text-align:justify;
 }
 
+b 
+{
+ font-weight: bold;
+}
+
 img
 {
- width: 300px;
+ width: 250px;
  margin-bottom:20px;
  border-width:3px;
  border-color:red;
@@ -35,13 +40,72 @@ iframe
 .left
 {
  display: inline-block;
- width: 50%;
+ margin-left:40px;
+ margin-top:25px;
+ width: 44%;
 }
 
 .right
 {
+ display: block;
+ width: 50%;
+ margin-top:25px;
+ float:right;
+}
+
+.full
+{
  display: inline-block;
- width: 44%;
+}
+
+.box
+{
+ margin-left:10px;
+ position: relative;
+}
+
+.box h1
+{
+ font-weight: 100;
+ font-size: 24px;
+ line-height: 48px;
+ border-bottom: 1px solid blue;
+}
+
+.box img
+{
+ width: 230px;
+}
+
+.box ul
+{
+ color: black;
+ font-size:14px;
+ text-align:justify;
+ list-style-type: circle;
+ padding-left:0px;
+ padding-bottom:3px;
+}
+
+.box li
+{
+ background-color: #ededed;
+ list-style-type: none;
+ float: left;
+ margin-bottom: 24px;
+ padding: 12px;
+ -moz-box-shadow: 0px 4px 12px #ccc; /* FF3.5+ */
+ -webkit-box-shadow: 0px 4px 12px #ccc; /* Saf3.0+, Chrome */
+ box-shadow: 0px 4px 12px #ccc; /* Opera 10.5, IE 9.0 */
+ filter:  progid:DXImageTransform.Microsoft.dropshadow(OffX=12px, OffY=12px, Color='#ccc'); /* IE6,IE7 */
+ -ms-filter: "progid:DXImageTransform.Microsoft.dropshadow(OffX=12px, OffY=12px, Color='#ccc')"; /* IE8 */
+}
+
+.box p
+{
+ color: black;
+ font-size:14px;
+ text-align:justify;
 }
 
 article,aside,details,figcaption,figure,
@@ -100,7 +164,6 @@ table {
 a {
     color: #37e;
     text-decoration: underline;
-    text-shadow: 0px 2px 0px #fff;
 }
 
 a:hover{
@@ -109,10 +172,9 @@ a:hover{
 
 body{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #efefef;
+	background-image: url("../images/background.png");
     padding: 0;
     margin: 0;
-    text-shadow: 0px 2px 0px #efefef;
 }
 
 #container{
@@ -131,7 +193,6 @@ footer{
     font-size: 10px;
     text-align: center;
     margin-top: 24px;
-    text-shadow: 0px 2px 0px #fff;
 }
 
 /* Button styles from the awesome: http://www.webdesignerwall.com/demo/css-buttons.html */
@@ -147,11 +208,11 @@ footer{
     text-align: center;
     text-decoration: none;
     font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: .5em 1.2em .55em;
+    padding: .5em 1.74em .55em;
     text-shadow: 0 1px 1px rgba(0,0,0,.3);
-    -webkit-border-radius: .5em;
-    -moz-border-radius: .5em;
-    border-radius: .5em;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
     -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
     box-shadow: 0 1px 2px rgba(0,0,0,.2);
@@ -182,7 +243,7 @@ footer{
 /* white */
 .white {
     color: #606060;
-    border: solid 1px #b7b7b7;
+    border: solid 0px #b7b7b7;
     background: #fff;
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
     background: -moz-linear-gradient(top,  #fff,  #ededed);
@@ -202,7 +263,7 @@ footer{
 }
 
 .banner{
-    border-bottom: 8px solid #222;
+    border-bottom: 0px solid #222;
     padding: 0 12px;
     position: relative;
 }
@@ -474,7 +535,7 @@ h1 a, h2 a, h3 a{
 }
 
 nav.post_nav{
-    background-color: efefef;
+    background-color: #efefef;
     position: fixed;
     width: 80px;
 	height: 130px;
