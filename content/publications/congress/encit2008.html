@@ -1,8 +1,52 @@
 ---
-Type: Congress 
-Author: Anjos, G.R.; Portela, L.M.; Souza, F.S.; Mangiavacchi, N.
-Title: An ALE Finite Element Method for the Simulation of 3D Multiphase Flows
-Congress: ENCIT
-Year: 2008
-File: congress/encit2008.pdf
+type: Congress 
+author: Anjos, G.R.; Portela, L.M.; Souza, F.S.; Mangiavacchi, N.
+title: An ALE Finite Element Method for the Simulation of 3D Multiphase Flows
+congress: ENCIT
+year: 2008
+file: congress/encit2008.pdf
+tags:
+    - moving mesh
+    - level-set
+    - projection method
+    - finite element method
+    - two-phase 
 ---
+
+# Congress: ENCIT
+
+<br>
+
+# ABSTRACT:
+
+Multiphase bubbly flows are important in many industrial applications.
+One important application is the simulation of hydrate formation in oil
+and gas industry. In fact, hydrate formation is considered one of the
+most important problems in the oil industry. As off-shore production
+migrates to deeper zones, hydrate formation in lines and production
+equipment becomes a more severe restriction. The study of the first
+stages of hydrate formation requires the knowledge of lift and drag
+forces over bubbles and drops. Hence, detailed modeling of bubble flows
+and interface phenomena is required for the understanding of hydrate
+formation dynamics. This work presents a novel method to solve 3D bubble
+flows. The method is based on a ALE approach on an unstructured Finite
+Element discretization using the Taylor-Hood Mini element. The surface
+tension effects are included in a consistent way, avoiding spurious
+oscillations and parasitic currents. The convective terms are
+discretized using a semi-Lagrangian technique, which is unconditionally
+stable for arbitrary integration time steps and Reynolds numbers. The
+pressure and velocity computations are decoupled employing a projection
+method based on an approximate block LU factorization, producing a very
+efficient methodology. Interface is represented by faces, edges and
+vertices of the tetrahedralization. The interfacial vertices are moved
+in a Lagrangian fashion, while the other vertices are moved in order to
+keep the good quality of the mesh, thus avoiding remeshing procedures.
+The method is an extension of the method described in [Sousa et al.] for
+the simulation of 3d flows. The method was validated against analytical
+solutions in simple cases, as well as experimental results with bubbles,
+showing excellent mass conservation properties, stability, and
+computational performance.
+
+[download][1]
+
+[1]:{{media_url('pdf/publications/congress/encit2008.pdf')}}

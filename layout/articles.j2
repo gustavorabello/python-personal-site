@@ -12,7 +12,7 @@
 {% for year in years -%}
 <h1> {{ year }} </h1>
 
-{% for res in resource.node.walk_resources_sorted_by_time() if res.meta.Year == year -%}
+{% for res in resource.node.walk_resources_sorted_by_time() if res.meta.year == year -%}
  {{ render_article(res) }}
 {% endfor %}
 

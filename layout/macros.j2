@@ -46,60 +46,61 @@
 {%- endmacro %}
 
 {% macro render_article(res, class=None) %}
+{% refer to res.relative_path as post %}
  <div id="block">
   <div class="left">
-   <a href={{ media_url('pdf/publications/') }}{{ res.meta.File }}> 
+   <a href={{ media_url('pdf/publications/') }}{{ res.meta.file }}> 
    <img src={{ media_url('images/pdf-icon.png') }} ></a>
   </div>
   <div class="right">
-   {% if res.meta.Type == 'Chapter' -%}
-	<p> {{ res.meta.Author}}, 
-	<b> {{ res.meta.Title }},</b>
-	{{res.meta.Book }}, 
-	{{ res.meta.Publisher }}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'Chapter' -%}
+	<p> {{ res.meta.author}}, 
+	<b> {{ res.meta.title }},</b>
+	{{res.meta.book }}, 
+	{{ res.meta.publisher }}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'Journal' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Journal }}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'Journal' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.journal }}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'Congress' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Congress}}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'Congress' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.congress}}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'Report' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Place}}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'Report' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.place}}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'Book' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Book}}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'Book' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.book}}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'BSc' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-	{{ res.meta.Place }}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'BSc' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+	{{ res.meta.place }}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'MSc' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Place }}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'MSc' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.place }}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
-   {% if res.meta.Type == 'PhD' -%}
-    <p> {{ res.meta.Author }}, 
-	<b> {{ res.meta.Title }}</b>, 
-    {{ res.meta.Place }}, 
-	<b> {{ res.meta.Year }} </b> </p>
+   {% if res.meta.type == 'PhD' -%}
+    <p> {{ res.meta.author }}, 
+	<b> {{ res.meta.title }}</b>, 
+    {{ res.meta.place }}, 
+	<b> {{ res.meta.year }} </b> </p>
    {%- endif %}
   </div>
  </div>
