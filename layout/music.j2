@@ -20,8 +20,8 @@
     <div class="left">
    {% endif %}
 
-   {% if res.meta.Artist != artistname %}
-    <h1> {{ res.meta.Artist }} </h1>
+   {% if res.meta.artist != artistname %}
+    <h1> {{ res.meta.artist }} </h1>
     {{ render_tab(res) }}
    {% else %}
     {{ render_tab(res) }}
@@ -31,7 +31,7 @@
     </div>
    {% endif %}
 
-   {% set artistname = res.meta.Artist -%}
+   {% set artistname = res.meta.artist -%}
    {% set counter = counter + 1 -%}
 
 
@@ -42,14 +42,14 @@
     <div class="right">
    {% endif %}
 
-   {% if res.meta.Artist != artistname %}
-    <h1> {{ res.meta.Artist }} </h1>
+   {% if res.meta.artist != artistname %}
+    <h1> {{ res.meta.artist }} </h1>
     {{ render_tab(res) }}
    {% else %}
     {{ render_tab(res) }}
    {% endif %}
 
-   {% set artistname = res.meta.Artist -%}
+   {% set artistname = res.meta.artist -%}
    {% set counter = counter + 1 -%}
 
 {% endif %}

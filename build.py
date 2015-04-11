@@ -223,9 +223,10 @@ def populateMusicDB():
 
      file = open(savedir + basename + ".html",'w')
      file.write("---\n")
-     file.write("Artist: " + artist + "\n")
-     file.write("Title: " + songname + "\n")
-     file.write("Dir: html/tabs/" + artistname + "/" + basename + ".html\n")
+     file.write("artist: " + artist + "\n")
+     file.write("title: " + songname + "\n")
+     file.write("type: music" + "\n")
+     file.write("dir: html/tabs/" + artistname + "/" + basename + ".html\n")
      file.write("---\n")
      file.close()
      count = count + 1

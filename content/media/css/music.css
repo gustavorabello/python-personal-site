@@ -39,7 +39,8 @@
 
 #twoColumns .left
 { 
- width:45%;
+ width:44%;
+ margin-bottom:30px;
 }
 
 #twoColumns .right

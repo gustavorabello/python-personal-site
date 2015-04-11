@@ -107,7 +107,7 @@
 {% endmacro %}
 
 {% macro render_tab(res, class=None) %}
-	<li><a href="{{ media_url(res.meta.Dir) }}">{{ res.meta.Title }}</a></li>
+	<li><a href="{{ media_url(res.meta.dir) }}">{{ res.meta.title }}</a></li>
 {% endmacro %}
 
 {% macro render_video(res, class=None) %}
