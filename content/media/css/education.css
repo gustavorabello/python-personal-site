@@ -5,6 +5,11 @@
 {
  margin-top:10px;
  margin-bottom:30px;
+ width:820px;
+ text-align:center;
+ font-size:13px;
+ letter-spacing:-1px;
+ height:150px;
 }
 
 #item li
@@ -41,5 +46,20 @@
  height:50px;
  text-align:center;
  color:black;
+}
+
+#item .left
+{ 
+ margin-top:10px;
+ margin-left:40px;
+ float:left;
+ width:40%;
+}
+
+#item .right
+{ 
+ margin-top:10px;
+ float:right;
+ width:48%;
 }
 

@@ -13,7 +13,12 @@
 {% macro render_course(res, class=None) %}
 {% refer to res.relative_path as post %}
 <h1>{{ res.meta.title }}</h1>
+<div class=left>
 {{ post.course|markdown|typogrify }}
+</div>
+<div class=right>
+{{ post.courseRight|markdown|typogrify }}
+</div>
 {% endmacro %}
 
 {% macro render_nav(menu, cls=None) -%}
