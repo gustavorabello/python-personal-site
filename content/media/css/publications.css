@@ -3,6 +3,7 @@
 #block
 {
  margin-left:40px;
+ padding-bottom:20px;
  width:630px;
  height:20px;
 }
@@ -22,9 +23,9 @@
 
 #block p
 {
-font-size:14px;
+ font-size:14px;
  text-align:justify;
-color:black;
+ color:black;
 }
 
 #block li
@@ -48,18 +49,20 @@ color:black;
 { 
  float:left;
  width:5%;
+ height:30px;
 }
 
 #block .right
 { 
  float:right;
  width:86%;
+ height:30px;
 }
 
 #page
 {
  width:600px;
- margin-top:30px;
+ margin-top:10px;
  margin-bottom:60px;
  text-align:center;
  font-size:13px;
@@ -88,11 +91,14 @@ color:black;
  font-weight:bold;
  text-align:justify;
  margin-left:30px;
- margin-bottom:10px;
+ margin-top:10px;
  color:black;
  border-bottom: 1px solid blue;
  width:640px;
 }
 
-
+#page h2
+{
+ padding-bottom:30px;
+}
 
