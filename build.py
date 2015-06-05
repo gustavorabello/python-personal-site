@@ -4,7 +4,7 @@
 #  e-mail: gustavo.rabello@gmail.com                                    #
 ## =================================================================== ##
 
-import os,fnmatch,re,shutil
+import os,fnmatch,re,shutil,socket
 from subprocess import call
 from PIL import Image
 
@@ -240,7 +240,12 @@ def populateMusicDB():
 
 def genSite():
  # removing local directory paginas
- directory = os.path.expanduser("~") + '/gustavo.rabello.org'
+
+ if socket.gethostname() == 'highland':
+  directory = os.path.expanduser("~") + '/gustavo.rabello.org'
+ else:
+  directory = './deploy'
+
  if os.path.exists(directory):
   print ""
   print "Removing " + directory
@@ -254,9 +259,9 @@ def genSite():
   os.makedirs(directory)
 
  # generating webpage into paginas folder
-  print ""
-  print "Generating website at " + directory
-  print ""
+ print ""
+ print "Generating website at " + directory
+ print ""
  call(['hyde','gen'])
 
 def main():
