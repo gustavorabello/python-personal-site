@@ -5,6 +5,7 @@
 ## =================================================================== ##
 
 import os,fnmatch,re,shutil
+from subprocess import call
 from PIL import Image
 
 def populateImageDB():
@@ -241,12 +242,21 @@ def genSite():
  # removing local directory paginas
  directory = os.path.expanduser("~") + '/gustavo.rabello.org'
  if os.path.exists(directory):
+  print ""
+  print "Removing " + directory
   shutil.rmtree(directory)
+  print ""
+  print "Creating " + directory
   os.makedirs(directory)
  else:
+  print ""
+  print "Creating " + directory
   os.makedirs(directory)
 
  # generating webpage into paginas folder
+  print ""
+  print "Generating website at " + directory
+  print ""
  call(['hyde','gen'])
 
 def main():
@@ -254,7 +264,7 @@ def main():
  #populateRecipeDB()
  populateMusicDB()
  #populateImageDB()
- populateVideoDB()
+ #populateVideoDB()
  genSite()
 
 
