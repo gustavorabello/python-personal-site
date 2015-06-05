@@ -243,7 +243,7 @@ def genSite():
  if os.path.exists(directory):
   shutil.rmtree(directory)
   os.makedirs(directory)
- else
+ else:
   os.makedirs(directory)
 
  # generating webpage into paginas folder
