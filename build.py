@@ -237,12 +237,26 @@ def populateMusicDB():
  print " *************************************** "
  print ""
 
+def genSite():
+ # removing local directory paginas
+ directory = os.path.expanduser("~") + '/gustavo.rabello.org'
+ if os.path.exists(directory):
+  shutil.rmtree(directory)
+  os.makedirs(directory)
+ else
+  os.makedirs(directory)
+
+ # generating webpage into paginas folder
+ call(['hyde','gen'])
+
 def main():
  #populateSaleDB()
  #populateRecipeDB()
  populateMusicDB()
  #populateImageDB()
  populateVideoDB()
+ genSite()
+
 
  # completed build script
  print u"All done running build.py."
@@ -250,5 +264,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
