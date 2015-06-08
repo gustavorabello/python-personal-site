@@ -135,8 +135,11 @@ def populateVideoDB():
  #
  count = 1
  yt_service = gdata.youtube.service.YouTubeService()
- pl_id = 'A5C4DB7CAE7AF003'
- playlist_video_feed = yt_service.GetYouTubePlaylistVideoFeed(playlist_id=pl_id)
+ #yt_service.ssl = True
+ pl_id = 'PLA5C4DB7CAE7AF003'
+ pl_uri = 'https://www.youtube.com/playlist?list=' + pl_id
+ print pl_uri
+ playlist_video_feed = yt_service.GetYouTubePlaylistVideoFeed(uri=pl_uri)
  for entry in playlist_video_feed.entry:
   title =  entry.media.title.text
   youtube = 'http://www.youtube.com/embed/%s' % entry.media.player.url[32:43]
@@ -269,7 +272,7 @@ def main():
  #populateRecipeDB()
  populateMusicDB()
  #populateImageDB()
- #populateVideoDB()
+ populateVideoDB()
  genSite()
 
 
