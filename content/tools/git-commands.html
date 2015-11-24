@@ -1,0 +1,97 @@
+---
+title: GIT Commands 
+created: !!timestamp '2015-11-24 10:00:00'
+tags:
+    - git
+    - commands
+---
+
+{% mark misc -%}
+
+# 1st commit
+
+git init
+
+git add .
+
+git commit -a -m "First import"
+
+
+# 1st checkout (clone from server)
+
+git clone guga@git.rabello.org:~/git/<project> <project>
+
+
+# commit
+
+cd <project>
+
+git add <filename>
+
+git commit -a -m "text msg"
+
+
+# send changes to server
+
+git push
+
+# update version to be equal to the server
+git pull
+
+# add empty dir
+mkdir <dir>
+touch <dir>/.gitignore
+git add <dir>
+echo '*' >> <dir>/gitignore
+git commit -m "added empty dir" <dir>
+
+
+# creating and commiting
+
+cd <dir>
+
+git init
+
+git add <filename> or git add .
+
+git commit -m "First commit"
+
+# basic branching and merging
+
+git branch "name"
+
+git branch (list of branches)
+
+git checkout "name"
+
+(edit files)
+
+git commit -a
+
+git merge "name"
+
+
+# how to have 2 remote origins
+
+git remote add <name> <url>
+
+Ex.: git remote add github
+
+https://github.com/gustavorabello/test.git
+
+git push github master:master
+
+
+# list of remote origins
+
+git remote
+
+
+# remove origins
+
+git remote rm origin
+
+Ex.: git remote rm github
+
+
+{%- endmark %}
