@@ -131,6 +131,5 @@
 {% endmacro %}
 
 {% macro render_misc(res, class=None) %}
-{% refer to res.relative_path as post %}
 <li><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></li>
 {% endmacro %}

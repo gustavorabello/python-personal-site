@@ -1,0 +1,16 @@
+{% extends "base.j2" %}
+{% block main %}
+
+{% filter markdown|typogrify -%}
+{% mark text-%}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/tools.css') }}">
+ </head>
+ <div id="text">
+{% block text-%}
+{%- endblock %}
+ </div>
+{%- endmark %}
+{%- endfilter %}
+
+{%- endblock %}

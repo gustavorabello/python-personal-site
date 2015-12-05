@@ -1,4 +1,6 @@
 ---
+extends: toolspost.j2
+default_block: text
 title: GIT Commands 
 created: !!timestamp '2015-11-24 10:00:00'
 tags:
@@ -24,9 +26,9 @@ git clone guga@git.rabello.org:~/git/<project> <project>
 
 # commit
 
-cd <project>
+cd "project"
 
-git add <filename>
+git add "filename"
 
 git commit -a -m "text msg"
 
@@ -36,23 +38,29 @@ git commit -a -m "text msg"
 git push
 
 # update version to be equal to the server
+
 git pull
 
-# add empty dir
-mkdir <dir>
-touch <dir>/.gitignore
-git add <dir>
-echo '*' >> <dir>/gitignore
-git commit -m "added empty dir" <dir>
+# add empty "dir"
+
+mkdir "dir"
+
+touch "dir"/.gitignore
+
+git add __dir__
+
+echo '*' >> __dir__/gitignore
+
+git commit -m "added empty dir" "dir"
 
 
 # creating and commiting
 
-cd <dir>
+cd "dir"
 
 git init
 
-git add <filename> or git add .
+git add "filename" or git add .
 
 git commit -m "First commit"
 
@@ -73,7 +81,7 @@ git merge "name"
 
 # how to have 2 remote origins
 
-git remote add <name> <url>
+git remote add "name" "url"
 
 Ex.: git remote add github
 

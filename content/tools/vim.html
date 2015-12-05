@@ -1,4 +1,6 @@
 ---
+extends: toolspost.j2
+default_block: text
 title: Vim Commands 
 created: !!timestamp '2015-03-18 10:00:00'
 tags:
@@ -9,7 +11,7 @@ tags:
 {% mark misc -%}
 
 
-BASICS            
+# Basics            
 
 :w                  save document
 
@@ -45,7 +47,7 @@ BASICS
 
 
 
-SUBSTITUTION
+# Substitution
 
 i                   insert text
 
@@ -67,7 +69,7 @@ x                   delete character under cursor
 
 
 
-REGISTERS
+# Registers
 
 
 q[a-z;0-9]          start record to [a-z;0-9]
@@ -85,7 +87,7 @@ q                   end of record
 
 
 
-BIBLIOGRAPHY
+# Bibliography
 
 [vim online (official site)][1]
 
@@ -105,22 +107,14 @@ BIBLIOGRAPHY
 
 [vim tips wiki][9]
 
-[1]: http://www.vim.org}}
-
+[1]: http://www.vim.org
 [2]: http://www.oualline.com/vim-cook.html#all_files
-
 [3]: http://jmcpherson.org/editing.html
-
 [4]: http://www.worldtimzone.com/res/vi.html
-
 [5]: http://rayninfo.co.uk/vimtips.html
-
 [6]: http://web.cs.swarthmore.edu/help/vim/vim7.html
-
 [7]: http://aurelio.net/doc/vim/vim-comandos.html
-
 [8]: http://pt.wikibooks.org/wiki/Vim:_Repeti%C3%A7%C3%A3o_de_Comandos
-
 [9]: http://vim.wikia.com/wiki/Main_Page
 
 {%- endmark %}
