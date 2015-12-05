@@ -12,7 +12,7 @@ tags:
 
 # Xcode command line tools
 
-xcode-select ------install
+xcode-select --install
 
 # Homebrew basic requirement
 
@@ -36,11 +36,13 @@ test
 # Boost
 
 ---- install python-dev package ----
+
 ./bootstrap.sh --prefix=$HOME/Programs/boost/1.59.0/;./bjam install
 
 # TetGen
 
 ---- uncomment #define TETLIBRARY in tetgen.h ----
+
 make tetlib
 
 $ petsc4py
