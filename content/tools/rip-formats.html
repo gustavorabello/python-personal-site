@@ -1,0 +1,367 @@
+---
+extends: toolspost.j2
+default_block: text
+title: Rip Formats 
+created: !!timestamp '2015-11-24 09:00:00'
+tags:
+    - osx
+    - commands
+---
+
+{% mark misc -%}
+
+# CAM
+
+O CAM é um "rip" feito no cinema, normalmente com uma câmera digital. Às
+vezes é usado um tripé, mas na maioria das vezes isso não é possível,
+deixando a filmagem tremida. Devido aos lugares disponíveis no cinema
+também não serem sempre no centro, pode ser filmado com ângulos
+diferentes. Se cortado (cropped) adequadamente, é difícil diferenciar, a
+não ser que tenha legendas na tela, mas muitas vezes os CAM são deixados
+com bordas pretas na parte de cima e de baixo da tela. O som é gravado
+com o microfone embutido da câmera e, especialmente em comédias, risadas
+são ouvidas durante o filme. Devido a esses fatores, a qualidade de som
+e imagem costumam ser muito ruins, mas as vezes, com sorte, o cinema
+está quase vazio e apenas baixos ruídos serão ouvidos.
+ 
+# TELESYNC (TS)
+
+Um telesync tem as mesmas características de um CAM, só que usa uma
+fonte externa de áudio (normalmente um fone de ouvido na poltrona para
+pessoas que não ouvem bem). Uma fonte de áudio direto não garante uma
+boa qualidade de áudio, pois muitos barulhos podem interferir. Muitas
+vezes um telesync é filmado em um cinema vazio ou da cabine de projeção
+com uma câmera profissional, gerando uma melhor qualidade de imagem. A
+qualidade varia muito, por isso veja um sample (amostra) antes de baixar
+o filme por completo. A maior parte dos Telesyncs são CAMs que foram
+rotuladas de forma errada.
+ 
+# TELECINE (TC)
+
+Uma máquina de telecine copia o filme digitalmente dos rolos. O som e a
+imagem costumam ser muito bons, mas devido ao equipamento e custos
+envolvidos, os telecine são muito raros. Geralmente o filme estará com o
+aspect ratio (proporção) correto, apesar de existirem telecine de 4:3
+(tela cheia). TC não deve ser confundido com TimeCode , que é um
+contador visível e fixo durante todo o filme.
+ 
+# SCREENER (SCR)
+
+Uma fita VHS prévia, enviada para locadoras e vários outros lugares,
+para uso promocional. Um screener é fornecido de uma fita VHS e
+normalmente em 4:3 (tela cheia), apesar de alguns screener com faixas
+pretas já terem sido lançados. A maior desvantagem é um ?ticker? (uma
+mensagem que aparece na parte de baixo da tela com os direitos autorais
+e um telefone anti-pirataria). Além de que, se a fita tiver algum número
+de série, ou qualquer outra marca que possa denunciar a origem da fita,
+esses terão de ser escondidos, normalmente com uma faixa preta em cima.
+Isso costuma durar apenas uns segundos, mas infelizmente, em alguma
+cópias, dura o filme inteiro e alguns podem ser bem grandes.
+ 
+# R5
+
+R5 se refere a um formato específico de DVD região 5. Em um esforço para
+competir com a pirataria, a indústria decidiu criar esse novo formato
+que é produzido mais rápido e mais barato do que os tradicionais DVDs. O
+que os difere dos DVDs tradicionais é que os R5 são tranferidos
+diretamente de um telecine sem qualquer tipo de processamento de imagem,
+e sem nenhum adicional. Às vezes os DVDs R5 são lançados sem áudio em
+inglês, exigindo que os grupos de pirataria usem o áudio de outra fonte.
+Nesse caso o release possui a descrição ".LINE" para distinguir daqueles
+que possuem o áudio do original. A qualidade da imagem de um R5
+geralmente pode ser comparada com um DVD screener. No final de 2006
+alguns grupos como o DREAMLIGHT, mSs e PUKKA passaram a nomear seus
+Releases de ".R5" e sugeriram a outros grupos que fizessem o mesmo.
+ 
+# DVD-SCREENER (DVDscr)
+
+Mesmas condições do screener, mas com uma fonte de DVD. Normalmente com
+letterbox (faixas pretas), mas sem os extras que o DVD final (de venda
+e/ou aluguel) possa ter. O ticker não costuma ficar nas faixas pretas, e
+pode atrapalhar a visão. Se o ?ripador? tiver o mínimo de conhecimento,
+um DVDscr deve sair muito bom. Normalmente passado pra SVCD ou
+DivX/XviD.
+ 
+# DVDRip
+
+Uma cópia do lançamento final do DVD. Se possível, é lançado na internet
+antes mesmo do DVD de venda e/ou aluguel ser lançado. A qualidade deve
+ser excelente. DVDrips são lançados em SVCD e DivX/XviD.
+ 
+# VHSRip
+
+Feitos de VHS de venda e/ou aluguel, sendo a sua maioria os lançamentos
+de filmes de esportes e de XXX.
+ 
+# TVRip
+
+Episódios de TV que são de redes (capturados usando cabos
+digitais/satélite) ou de ?PRE-AIR?, que usam as fontes de satélites que
+mandam o programa pelas redes com alguns dias de antecedências.
+ 
+# PDTV/HDTV
+
+Os PDTV são capturados de uma TV com cartão PCI DIGITAL, normalmente
+gerando os melhores resultados. Muitas vezes vemos o rip rotulado como
+HDTV também, mas as diferenças entre esses dois termos são apenas
+técnicas. Os grupos costumam lançar em SVCD, apesar de rips em
+VCD/SVCD/DivX/XviD serem aceitos nos rips de TV.
+ 
+# WORKPRINT (WP)
+
+Um workprint é uma cópia do filme que ainda não foi finalizado. Pode
+conter cenas faltando, música, e a qualidade pode variar de excelente a
+muito ruim. Alguns WPs são diferentes da versão final (Homens de Preto
+está faltando todos os aliens e tem figurantes em seus lugares) e alguns
+tem cenas extras (Jay and Silent Bob). WPs podem ser boas aquisições
+para a coleção uma vez que já tenha em mãos a versão final.
+ 
+# DivX Reenc
+
+Um DivX re-enc é um filme que foi retirado do VCD e reencodado num
+pequeno arquivo DivX. Normalmente são encontrados nos compartilhadores,
+e são renomeados como Filme.Nome.Grupo(1of2). Grupos famosos são SMR e
+TMD. Esse formato não vale o download, a menos que você esteja incerto
+sobre um filme e quer apenas uma versão de 300MB.
+ 
+# Watermarks
+
+Muitos filmes vem de Asian Silvers/PDVD (veja abaixo) e esses são
+marcados pelo pessoal responsável. Usualmente com uma inicial ou um
+pequeno logo, geralmente num dos cantos. Os mais famosos são as marcas
+d'água "Z" "A" e "Globe".
+ 
+# Asian Silvers / PDVD
+
+São produzidos por contrabandistas e são comprados por alguns grupos que
+vendem como se fossem deles. Silvers são baratos e facilmente
+encontrados em muitos paíes, e é fácil sair um release, e é o motivo de
+ter tantos por aí no momento, principalmente de grupos pequenos que não
+duram mais que alguns lançamentos. PDVDs são a mesma coisa, mas postos
+num DVD. Eles têm legendas à parte, e a qualidade usualmente é melhor
+que os silvers. São ripados como um DVD normal, mas são lançados como
+VCD normalmente.
+ 
+# SVCD
+
+SVCD é baseado em MPEG-2 (como no DVD), que permite maiores taxas de
+variáveis até 2500kbits em uma definição de 480x480 (NTSC), que
+descomprimida em uma relação de aspecto de 4:3. Devido ao bit-rate
+variável, o comprimento que você pode ocupar em um único CDR não é fixo,
+geralmente entre 35-60 min.
+ 
+# VCD
+
+É um formato baseado em MPEG-1, com um bit-rate constante de 1150kbit em
+uma definição de 352x240 (NTSC). VCD's são usados geralmente para obter
+de uma qualidade mais baixa com o objetivo de tamanhos menores. VCD's e
+SVCD's são cronometrados nos minutos e não em MB, assim que ao olhar um,
+parecer maior do que a capacidade de disco e na realidade pode cabe
+74min em um CDR74.
+ 
+# XVCD / XSVCD
+
+Estes são basicamente VCD/SVCD melhorados. São ambos capazes de
+definições e de melhores taxas, muito mas elevadas. Muito difícil de se
+encontrar.
+ 
+# KVCD e KSVCD
+
+KVCD é uma modificação ao padrão MPEG-1 e MPEG-2. Habilita criar CDs de
+120 minutos com qualidade perto do DVD em CDs de 80 minutos. Porém já
+existe especificações que geram vídeos de 528x480 (NTSC) e 528x576 (PAL)
+e MPEG-1 com bitrate variável entre 64Kbps e 3000Kbps. Usando um
+resolução 352x240 (NTSC) ou 352x288 (PAL), é possível "encodar" vídeos
+com até 360 minutos com qualidade perto de um VCD num CD de 80 min.
+ 
+# KDVD
+
+Formato de arquivo 100% compatível com MPEG_2, capaz de rodar em
+qualquer DVD Player Standard. Esta tecnologia habilita 6 horas de filme
+em Full D-1 720x480 num DVD, ou algo em torno de 10 horas em Half D-1
+352x480 no meso DVD.
+ 
+# AVI
+
+Audio Video Interleave. Formato de vídeo mais usado em PCs com o
+Windows. Ele define como o vídeo e o áudio estão juntos um ao outro, sem
+especificar um codec.
+ 
+# MPEG
+
+É a abreviação de Motion Picture Expert Group e é a fonte de pesquisa
+para formatos de vídeo em geral. Este grupo define padrões em vídeo
+digital, estão entre eles o padrão MPEG1 (usado nos VCDs), o padrão
+MPEG2 (usado em DVDs e SVCDS), o padrão MPEG4 e vários padrões de áudio
+- entre eles MP3 e AAC. Arquivos contendo vídeo MPEG-1 ou MPEG-2 podem
+usar tanto .mpg quanto .mpeg na extensão.
+ 
+# OGM
+
+Pode ser usado à uma alternativa ao .avi e pode conter Ogg Vorbis, MP3
+e AC3 áudio, todos os formatos de vídeo, informação por capítulos e
+legendas.
+ 
+# VBR
+
+Bitrate Variável. É possível "encodar" áudio e vídeo com bitrate
+variável, o que não usa o mesmo bitrate para o arquivo inteiro (como
+no CBR = Bitrate Constante). Partes mais complicadas do vídeo/áudio
+vão receber mais bitrate para que a aparência/sonoridade seja melhor,
+e assim como partes menos complicadas irão receber menos bitrate.
+Geralmente arquivos com VBR são melhores que outros que contém CBR.
+ 
+# Bitrate
+
+Bitrate está diretamente ligado à nitidez (qualidade) do filme/música.
+Quer dizer que em formatos de compressão de áudio e vídeo como MPEG3 e
+MPEG4, quanto maior for o bitrate mais vezes por segundo o som ou
+filme original estará sendo reproduzido. O bitrate pode variar, sendo
+que taxas mais altas de bitrate criam som/vídeo de melhor qualidade.
+ 
+# Aspect Ratio Tags
+
+WS - Widescreen (letterbox)
+FS - Fullscreen
+ 
+# Codec
+
+É a abreviação de COder/DECoder ou codificador/decodificador.
+Equipamento ou programa que converte os sinais analógicos de som, voz
+e vídeo em sinais digitais e vice-versa. São exemplos de codecs: DivX,
+XviD (video) e MP3/AC3 (som).
+ 
+# DivX / XviD
+
+Dois codecs de última geração sendo o DivX mais antigo. Estão baseados
+no formato de compressco MPEG-4, compressão de vídeo de alta
+qualidade. Alguns chamam o MPEG-4 de "MP3 do vídeo". Com os arquivos
+em DivX você poderá assistir os filmes com qualidade de DVD som de CD,
+no seu PC. XVid já possui uma tecnologia melhor que o DivX, portanto
+necessita de PCs mais potentes para rodar. XViD é melhor que o DivX.
+ 
+# NTSC / PAL
+
+NTSC e o PAL são os dois padrões principais usados através do mundo.
+NTSC tem um frame mais elevado do que o PAL (29fps comparado a 25fps),
+mas o PAL tem um definião de melhor qualidade. Os dois tipo de padrões
+podem ter variações, sendo que no Brasil usa-se o padrão PAL-M e nos
+EUA o NTSC, para TVs, vídeos-cassete, DVDs.
+ 
+# AC3
+
+Codec de áudio conhecido como Audio Coding 3, é melhor que o Mp3 e é
+sinônimo para o Dolby Digital hoje em dia. Utilizado em alguns filmes
+com mais de 2 CDs, devido ao seu tamanho maior.
+ 
+# AAC
+Advanced Audio Coding, será o sucessor do AC3. É baseado no AC3, mas
+acrescenta uma variedade de melhorias em diversas áreas. Atualmente é
+difícil encontrar um player ou hardware que suportem esse novo formato
+de áudio.
+ 
+# BIN / CUE
+
+Bin e Cue são dois arquivos pertencentes à uma imagem de CD-R/RW ou
+DVD. Alguns releases de SVCD E VCD são lançados nas imagens dos
+próprios CDs. Para abri-lo você pode usar tanto o Daemons tools (note
+que não nescessita da Cue para fazê-lo se você alterar para mostrar
+todos os arquivos, ele abrirá o BIN) ou queimá-lo com o Nero ou
+CDRWin. Aconselha-se o CDRWin, por ser o programa que cria esse tipo
+de imagem.
+ 
+# Expressões encontradas:
+ 
+# PROPER
+Devido aos critérios, quem lançar o primeiro Telesync ganhou a corrida
+(por exemplo!). Mas se a qualidade desse release for ruim, devido
+alguns problemas na imagem ou som, e outro grupo tem outro telesync
+(ou a mesma fonte, mas em melhor qualidade) então a expressão PROPER é
+adicionada para evitar equívocos. PROPER é a expressão mais subjetiva
+encontrada, e as pessoas geralmente pergutam se o PROPER é melhor que
+a versão original. Muitos grupos lançam o PROPER em atos de desespero,
+para não perder a corrida. Um motivo para o PROPER deve ser sempre
+incluso no .NFO.
+ 
+# UNRATED
+
+Versão sem cortes.(Normalmente os vídeos são editados para conseguir
+um classificação etária mais ampla nos cinemas, já em DVD são lançados
+completos)
+ 
+# LIMITED
+
+Um filme limited significa que ele tem um número de exposições em
+cinemas limitados, normalmente estreando em menos de 250 cinemas.
+Geralmente filmes pequenos (como filmes de arte) são lançados nesse
+estilo.
+ 
+# INTERNAL
+
+Um release interno é feito por vários motivos. Grupos clássicos de DVD
+fazem muito isso, visto que eles não serão trapaceados. Também rips de
+má qualidade são feitos nesse estilo, para não baixar a reputação do
+grupo, ou devido ao grande número já existente do filme. Um lançamento
+interno é disponibilizado normalmente em sites afiliados ao grupo, mas
+eles não podem ser trocados com outros sites sem a devida permissão.
+Alguns INTERNALs ainda correm pelo IRC/Newsgroup, dependendo da
+popularidade. Há alguns anos, o grupo Centropy começou a lançar
+releases internos, mas num sentido diferente do INTERNAL, isto é,
+lançava somente para membros do grupo e não o disponibilizavam.
+ 
+# STV
+
+Straight To Video. Filmes ripados de DVD que nunca foram para o
+cinema, caíram direto para as locadoras e TVs.
+ 
+# ASPECT RATIO Tags
+
+As expressões de formato são:
+WS = Widescreen (letterbox)
+FS = Fullscreen.
+ 
+# REPACK/RERIP
+
+Se um grupo lança um rip ruim, eles irão re-lançá-lo, o qual virá com
+os problemas corrigidos.
+ 
+# NUKED
+
+Um rip pode ser "NUKADA", banida por diversas razões. Se o grupo
+lançar como TeleSyncs, por exemplo, e não tem nada de "TeleSyncs", ou
+o filme tem uma diferença na qualidade do áudio, outro exemplo, a
+partir de X minutos de filme. Então o nuke global ocorrerá e o grupo
+perderá seus créditos. Verifique sempre antes os releases para não
+pegar algo que foi banido, por má qualidade por exemplo. Se um grupo
+perceber que há algo errado com uma versão, eles podem requisitar um
+nuke.
+ 
+# Razões para o NUKE
+
+BAD A/R - Relação de aspecto, distorção do filme. Personagens aparecem
+muito largos ou finos.
+BAD IVTC - Processo de inversão telecine, conversão de framerates está
+incorreto.
+BAD FPS - Não segue o padrão de quadros por segundo vigente.
+INTERLACED - Linhas pretas no movimento como a ordem do campo estão
+incorretas.
+ 
+# DUPE
+
+Duplicada, já foi feito lançamento deste filme anteriormente. Dupe é
+bem simples, se algo já existe, então não há razão para ele ser
+lançado de novo sem uma razão séria.
+ 
+# SE (special edition)
+
+Edição Especial
+ 
+# DC (director's cut)
+
+Versão do diretor.
+ 
+# FONTE:
+http://guia.mercadolivre.com.br/aprenda-sobre-dvdrip-dvdscr-r5-etc-16525-VGP
+
+
+{%- endmark %}
