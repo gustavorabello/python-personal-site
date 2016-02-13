@@ -122,64 +122,7 @@ def populateSaleDB():
  print ""
 
 def populateVideoDB():
- import gdata.youtube
- import gdata.youtube.service
-
- print ""
- print " ************************************* "
- print " *  Adding entries to the database:  * "
- print ""
-
- #
- # Add if condition to check internet connection!
- #
- count = 1
- yt_service = gdata.youtube.service.YouTubeService()
- #yt_service.ssl = True
- pl_id = 'PLA5C4DB7CAE7AF003'
- pl_uri = 'https://www.youtube.com/playlist?list=' + pl_id
- print pl_uri
- playlist_video_feed = yt_service.GetYouTubePlaylistVideoFeed(uri=pl_uri)
- for entry in playlist_video_feed.entry:
-  title =  entry.media.title.text
-  youtube = 'http://www.youtube.com/embed/%s' % entry.media.player.url[32:43]
-  description = entry.media.description.text
-  date = entry.published.text[:10] + " " + entry.published.text[11:19] 
-  #keywords = entry.media.keywords.text # not working
-  duration = entry.media.duration.seconds
-
-  savedir = "content/videos/" 
-
-  file = open(savedir + str(count) + ".html",'w')
-  file.write("---\n")
-  file.write("title: " + title + "\n")
-  file.write("duration: " + duration + "\n")
-  file.write("created: !!timestamp '" + date + "'\n")
-  file.write("tags: \n")
-  file.write("    - two-phase \n")
-  file.write("---\n")
-  file.write("\n")
-  file.write("{% mark video -%}\n")
-  file.write("\n")
-  file.write("<iframe src=\"" + youtube + "\" frameborder=\"1\" allowfullscreen></iframe> \n")
-  file.write("\n")
-  file.write("{% endmark %}\n")
-  file.write("\n")
-  file.write("\n")
-  file.write("{% mark excerpt -%}\n")
-  file.write(description[0:320])
-  file.write("\n")
-  file.write("{% endmark %}\n")
-  file.write(description[320:])
-  file.write("\n")
-  file.close()
-  count = count + 1
-    
- print ""
- print " *  Total number of videos: " + str(count) + "        * "
- print " *  Entries in the database ADDED:   * "
- print " ************************************* "
- print ""
+ import youtube
 
 def populateMusicDB():
 
@@ -272,7 +215,7 @@ def main():
  #populateRecipeDB()
  populateMusicDB()
  #populateImageDB()
- #populateVideoDB()
+ populateVideoDB()
  genSite()
 
 
