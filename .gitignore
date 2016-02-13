@@ -10,3 +10,4 @@ content/musics/*/
 content/videos/?.html
 content/videos/??.html
 content/videos/???.html
+*oauth2.json
