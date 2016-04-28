@@ -1,0 +1,19 @@
+---
+extends: toolspost.j2
+default_block: text
+title: Linux Commands
+created: !!timestamp '2016-04-28 09:00:00'
+tags:
+    - linux
+    - commands
+---
+
+{% mark misc -%}
+
+# Empyting the buffers cache
+
+sudo sh -c 'echo 1 >/proc/sys/vm/drop_caches'
+sudo sh -c 'echo 2 >/proc/sys/vm/drop_caches'
+sudo sh -c 'echo 3 >/proc/sys/vm/drop_caches'
+
+{%- endmark %}
