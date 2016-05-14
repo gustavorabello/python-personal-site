@@ -187,8 +187,8 @@ def populateMusicDB():
 def genSite():
  # removing local directory paginas
 
- if socket.gethostname() == 'highland':
-  directory = os.path.expanduser("~") + '/gustavo.rabello.org'
+ if socket.gethostname() == 'br538.hostgator.com.br':
+  directory = os.path.expanduser("~") + '/public_html'
  else:
   directory = './deploy'
 
