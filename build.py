@@ -6,7 +6,7 @@
 
 import os,fnmatch,re,shutil,socket
 from subprocess import call
-from PIL import Image
+#from PIL import Image
 
 def populateImageDB():
 
