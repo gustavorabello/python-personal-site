@@ -17,6 +17,24 @@ p
  text-align:justify;
 }
 
+h1 
+{
+ color: black;
+ font-size:34px;
+ text-align:center;
+ margin-bottom:20px;
+}
+
+li
+{
+ color: black;
+ font-size:14px;
+ text-align:justify;
+ list-style-type: circle;
+ padding-left:0px;
+ padding-bottom:3px;
+}
+
 b 
 {
  font-weight: bold;
@@ -28,6 +46,9 @@ img
  margin-bottom:20px;
  border-width:3px;
  border-color:red;
+ display: block;
+ margin-left: auto;
+ margin-right: auto 
 }
 
 iframe

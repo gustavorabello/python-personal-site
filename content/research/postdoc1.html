@@ -1,7 +1,6 @@
 ---
 title: Post-Doc (MIT)
-description: >
-    Temper. Temper. Temper.
+description: Post-Doc description
 created: !!timestamp '2012-08-01 10:00:00'
 tags:
     - finite volume
@@ -13,7 +12,7 @@ tags:
 
 {% mark image -%}
 
-![constr]([[!!images/research/postdoc/under-construction.png]])
+![constr]([[!!images/research/postdoc/mit-logo.png]])
 
 {%- endmark %}
 
@@ -22,10 +21,80 @@ tags:
 The topic of the post-doc is boiling and condensation in convective flow
 with multiple bubbles. The work is being performed in the Nuclear
 Science and Engineering (NSE) at the Massachussetts Institute of
-Technology (MIT). More info will be updated soon!
+Technology (MIT). 
 
 {%- endmark %}
 
-[My Man Jeeves by PG Wodehouse][1]
+# Motivation and approach
 
-[1]: {{media_url('images/research/postdoc/under-construction.png')}}
+- Accurate prediction of the bubble size, which depends on the bubble
+  departure diameter (initial condition) and the condensation rate;
+- Identification of the PWR flow conditions including bubble sizes,
+  shapes, non-dimensional numbers, etc;
+- Literature review of data and empirical correlations for bubble
+  condensation;
+- Benchmark test cases to spot one physical effect at a time are divided
+  as: Heat Transfer from a solid sphere, 1-dimensional Stefan Problem,
+  Isothermal Bubble rise, Bubble growth in a liquid at rest (boiling),
+  Bubble collapse in a liquid at rest (condensation).
+
+&nbsp;
+
+<img src={{ media_url('images/research/postdoc/nuclear.png') }} 
+align="middle">
+
+&nbsp;
+
+<img src={{ media_url('images/research/postdoc/bubbles.png') }} 
+align="middle">
+
+&nbsp;
+
+# Results
+
+The Table shows benchmark results for 2 different mesh refinement levels
+compared to experimental results for a isothermal rising bubble. In
+Figure with red background, the numerical simulation of a bubble growth
+in a liquid at rest is compared to the well known Scriven solution for
+the bubble history. The Table presents a summary of conditions and
+applicability for pressurized water reactor (PWR) and 4 different models
+found in the literature. It shows that none of the currently available
+correlations is suitable for PWR application. These 4 correlations are
+plotted in Figures for the PWR conditions. As can be seen, the
+discrepancy of predicting bubble history and Nuc is large among them.
+
+&nbsp;
+
+
+<img src={{ media_url('images/research/postdoc/results1.png') }} 
+align="middle">
+
+&nbsp;
+
+<img src={{ media_url('images/research/postdoc/table-results.png') }} 
+align="middle">
+
+&nbsp;
+
+<img src={{ media_url('images/research/postdoc/table.png') }} 
+align="middle">
+
+&nbsp;
+
+# Conclusions and further work
+
+- Correlations were testes using different conditions and further
+  evaluated at the pressurized water reactor conditions in terms of the
+  bubble history β and the condensation Nusselt number Nuc during the
+  condensation process of a detached vapor bubble.
+- Current standard tool for prediction of liquid-to-bubble heat transfer
+  is the Ranz and Marshall’s correlation (Ranz and Marshall, Jr., 1952).
+  It was found that the available resources are insufficient to describe
+  accurately the condensation process occurring at PWR conditions.
+  However, we suggest the Chen and Meyinger’s correlation due to the
+  easiness of implementation in numerical codes and its linear evolution
+  with time (Fo);
+- We have started direct numerical simulations of the bubble
+  condensation process in subcooled flow boiling using the commercial
+  code TransAT. 
+
