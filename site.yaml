@@ -25,17 +25,23 @@ context:
                 type: page
                 url: index.html
             -
-                name: Research
-                description: Research
-                css_class: research
-                type: node
-                url: research
-            -
                 name: Education
                 description: Education
                 css_class: education
                 type: node
                 url: education
+            -
+                name: Teaching
+                description: Teaching 
+                css_class: teaching 
+                type: node
+                url: teaching 
+            -
+                name: Research
+                description: Research
+                css_class: research
+                type: node
+                url: research
             -
                 name: Publications
                 description: Publications

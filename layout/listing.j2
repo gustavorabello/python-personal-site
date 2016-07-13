@@ -1,6 +1,9 @@
 {% extends "base.j2" %}
 {% from "macros.j2" import render_excerpt with context  %}
 {% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/publications.css') }}">
+</head>
 
 <ul class="listing clearfix">
 {% for res in resource.node.walk_resources_sorted_by_time() %}
