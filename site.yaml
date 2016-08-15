@@ -25,11 +25,11 @@ context:
                 type: page
                 url: index.html
             -
-                name: Education
-                description: Education
-                css_class: education
+                name: Career
+                description: Carreer 
+                css_class: carreer
                 type: node
-                url: education
+                url: carreer
             -
                 name: Teaching
                 description: Teaching 
