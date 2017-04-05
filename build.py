@@ -43,7 +43,7 @@ def populateImageDB():
    print "  " + filename + " " + title + " " + dim + " " + date + " " + text
 
  print ""
- print " *  Entries in the database ADDED:   * "
+ print " *  Entries in the database ADDED!   * "
  print " ************************************* "
  print ""
 
@@ -81,7 +81,7 @@ def populateRecipeDB():
    print "  " + obj + " " + filename + " " + date + " " + infoname
 
  print ""
- print " *  Entries in the database ADDED:   * "
+ print " *  Entries in the database ADDED!   * "
  print " ************************************* "
  print ""
 
@@ -117,7 +117,7 @@ def populateSaleDB():
          + " " + link + " " + original + " " + price
 
  print ""
- print " *  Entries in the database ADDED:   * "
+ print " *  Entries in the database ADDED!   * "
  print " ************************************* "
  print ""
 
@@ -180,7 +180,7 @@ def populateMusicDB():
  
  print ""
  print " *  Total number of musics: " + str(count) + "        * "
- print " *  Finished: music folder completed:  * "
+ print " *  Finished: music folder completed!  * "
  print " *************************************** "
  print ""
 
