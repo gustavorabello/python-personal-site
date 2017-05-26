@@ -93,7 +93,7 @@ for channel in channels_response["items"]:
       description = playlist_item["snippet"]["description"]
       date = playlist_item["snippet"]["publishedAt"][:10]+" "+\
              playlist_item["snippet"]["publishedAt"][11:19]
-      videoid = "http://www.youtube.com/embed/"+\
+      videoid = "https://www.youtube.com/embed/"+\
                 playlist_item["snippet"]["resourceId"]["videoId"]
 
       
@@ -120,7 +120,7 @@ for channel in channels_response["items"]:
       file.write("\n")
       file.write("{% mark video -%}\n")
       file.write("\n")
-      file.write("<iframe src=\"" + videoid + "\" frameborder=\"1\" allowfullscreen></iframe> \n")
+      file.write("<iframe src=\"" + videoid + "?rel=0" + "\"frameborder=\"1\" allowfullscreen></iframe> \n")
       file.write("\n")
       file.write("{% endmark %}\n")
       file.write("\n")
