@@ -193,11 +193,12 @@ def genSite():
   print ""
   print "Removing contents in " + directory
   for dirs in os.listdir(directory):
-   print dirs
-   if os.path.isdir(directory + '/' + dirs):
+   if os.path.isdir(directory + '/' + dirs) and dirs != '.git':
     shutil.rmtree(directory + '/' + dirs)
+    print "Deleting directory " + dirs
    else: # it is a file
     if dirs != '.gitignore':
+     print "Deleting file " + dirs
      os.remove(directory + '/' + dirs)
  else:
   print ""
