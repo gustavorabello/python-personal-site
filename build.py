@@ -4,7 +4,8 @@
 #  e-mail: gustavo.rabello@gmail.com                                    #
 ## =================================================================== ##
 
-import os,fnmatch,re,shutil,socket
+import os,time,fnmatch,re,shutil,socket
+from datetime import datetime, timedelta
 from subprocess import call
 #from PIL import Image
 
@@ -135,13 +136,16 @@ def populateMusicDB():
 
  count = 1
  # loop all artist's folder
- for artistname in os.listdir(dirname):
+ for artistname in sorted(os.listdir(dirname)):
   # loop inside each folder
   if os.path.isdir(os.path.join(dirname, artistname)):
-   for infile in os.listdir(dirname+artistname):
+   for infile in sorted(os.listdir(dirname+artistname)):
     if fnmatch.fnmatch(infile, '*.html'): 
      # spliting base name and extension
      basename = os.path.splitext(infile)[0]
+     #print dirname+artistname+'/'+infile    
+     a = datetime.now() - timedelta(seconds=count)
+     timestamp = time.strftime(str(a))
      
      # HTML files should be formatted as follow:
      # oCarderno.html,
@@ -174,6 +178,7 @@ def populateMusicDB():
      file.write("title: " + songname + "\n")
      file.write("type: music" + "\n")
      file.write("dir: html/tabs/" + artistname + "/" + basename + ".html\n")
+     file.write("created: !!timestamp '" + timestamp + "'\n")
      file.write("---\n")
      file.close()
      count = count + 1
