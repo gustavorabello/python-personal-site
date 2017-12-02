@@ -13,10 +13,10 @@ def populateImageDB():
 
  dirname = 'static/figures/'
 
- print ""
- print " ************************************* "
- print " *  Adding entries to the database:  * "
- print ""
+ print ("")
+ print (" ************************************* ")
+ print (" *  Adding entries to the database:  * ")
+ print ("")
 
  # loop all files
  for arq in os.listdir(dirname):
@@ -41,21 +41,21 @@ def populateImageDB():
                date=date,
                text=text)
   
-   print "  " + filename + " " + title + " " + dim + " " + date + " " + text
+   print ("  " + filename + " " + title + " " + dim + " " + date + " " + text)
 
- print ""
- print " *  Entries in the database ADDED!   * "
- print " ************************************* "
- print ""
+ print ("")
+ print (" *  Entries in the database ADDED!   * ")
+ print (" ************************************* ")
+ print ("")
 
 def populateRecipeDB():
 
  dirname = 'static/recipes/'
 
- print ""
- print " ************************************* "
- print " *  Adding entries to the database:  * "
- print ""
+ print ("")
+ print (" ************************************* ")
+ print (" *  Adding entries to the database:  * ")
+ print ("")
 
  # loop all files
  for arq in os.listdir(dirname):
@@ -79,22 +79,22 @@ def populateRecipeDB():
                 date=date,
                 info=infoname)
   
-   print "  " + obj + " " + filename + " " + date + " " + infoname
+   print ("  " + obj + " " + filename + " " + date + " " + infoname)
 
- print ""
- print " *  Entries in the database ADDED!   * "
- print " ************************************* "
- print ""
+ print ("")
+ print (" *  Entries in the database ADDED!   * ")
+ print (" ************************************* ")
+ print ("")
 
 
 def populateSaleDB():
 
  dirname = 'static/sales/'
 
- print ""
- print " ************************************* "
- print " *  Adding entries to the database:  * "
- print ""
+ print ("")
+ print (" ************************************* ")
+ print (" *  Adding entries to the database:  * ")
+ print ("")
 
  # loop all files
  for arq in os.listdir(dirname):
@@ -114,13 +114,13 @@ def populateSaleDB():
    original = line[8].split('\n')[0]
    price = line[10].split('\n')[0]
 
-   print "   " + filename + " " + info + " " + cond \
-         + " " + link + " " + original + " " + price
+   print ("   " + filename + " " + info + " " + cond \
+         + " " + link + " " + original + " " + price)
 
- print ""
- print " *  Entries in the database ADDED!   * "
- print " ************************************* "
- print ""
+ print ("")
+ print (" *  Entries in the database ADDED!   * ")
+ print (" ************************************* ")
+ print ("")
 
 def populateVideoDB():
  import youtube
@@ -129,10 +129,10 @@ def populateMusicDB():
 
  dirname = 'content/media/html/tabs/'
 
- print ""
- print " *************************************** "
- print " *   Adding entries to music folder:   * "
- print ""
+ print ("")
+ print (" *************************************** ")
+ print (" *   Adding entries to music folder:   * ")
+ print ("")
 
  count = 1
  # loop all artist's folder
@@ -143,7 +143,7 @@ def populateMusicDB():
     if fnmatch.fnmatch(infile, '*.html'): 
      # spliting base name and extension
      basename = os.path.splitext(infile)[0]
-     #print dirname+artistname+'/'+infile    
+     #print (dirname+artistname+'/'+infile)
      a = datetime.now() - timedelta(seconds=count)
      timestamp = time.strftime(str(a))
      
@@ -183,11 +183,11 @@ def populateMusicDB():
      file.close()
      count = count + 1
  
- print ""
- print " *  Total number of musics: " + str(count) + "        * "
- print " *  Finished: music folder completed!  * "
- print " *************************************** "
- print ""
+ print ("")
+ print (" *  Total number of musics: " + str(count) + "        * ")
+ print (" *  Finished: music folder completed!  * ")
+ print (" *************************************** ")
+ print ("")
 
 def genSite():
  # removing local directory paginas
@@ -195,25 +195,25 @@ def genSite():
  directory = './deploy'
 
  if os.path.exists(directory):
-  print ""
-  print "Removing contents in " + directory
+  print ("")
+  print ("Removing contents in " + directory)
   for dirs in os.listdir(directory):
    if os.path.isdir(directory + '/' + dirs) and dirs != '.git':
     shutil.rmtree(directory + '/' + dirs)
-    print "Deleting directory " + dirs
+    print ("Deleting directory " + dirs)
    else: # it is a file
     if dirs != '.gitignore' and dirs != '.git':
-     print "Deleting file " + dirs
+     print ("Deleting file " + dirs)
      os.remove(directory + '/' + dirs)
  else:
-  print ""
-  print "Creating " + directory
+  print ("")
+  print ("Creating " + directory)
   os.makedirs(directory)
 
  # generating webpage into paginas folder
- print ""
- print "Generating website at " + directory
- print ""
+ print ("")
+ print ("Generating website at " + directory)
+ print ("")
  call(['hyde','gen'])
 
 def main():
@@ -226,7 +226,7 @@ def main():
 
 
  # completed build script
- print u"All done running build.py."
+ print (u"All done running build.py.")
 
 
 if __name__ == "__main__":

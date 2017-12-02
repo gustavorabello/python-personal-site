@@ -71,9 +71,9 @@ for channel in channels_response["items"]:
   #uploads_list_id = channel["contentDetails"]["relatedPlaylists"]["uploads"]
   uploads_list_id = "PLA5C4DB7CAE7AF003"
 
-  print ""
-  print " *************************************** "
-  print " *  Videos in list %s" % uploads_list_id + "  * "
+  print ("")
+  print (" *************************************** ")
+  print (" *  Videos in list %s" % uploads_list_id + "  * ")
 
   # Retrieve the list of videos uploaded to the authenticated user's channel.
   playlistitems_list_request = youtube.playlistItems().list(
@@ -86,7 +86,7 @@ for channel in channels_response["items"]:
   while playlistitems_list_request:
     playlistitems_list_response = playlistitems_list_request.execute()
 
-    # Print information about each video.
+    # print ("information about each video.")
     for playlist_item in playlistitems_list_response["items"]:
       title = playlist_item["snippet"]["title"]
       video_id = playlist_item["snippet"]["resourceId"]["videoId"]
@@ -103,9 +103,9 @@ for channel in channels_response["items"]:
        id=video_id
        ).execute()
       duration = results["items"][0]["contentDetails"]["duration"][2:-1]
-      #print "title: " + title
-      #print "video_id: " + video_id
-      #print "description: " + description
+      #print ("title: " + title)
+      #print ("video_id: " + video_id)
+      #print ("description: " + description)
 
       savedir = "content/videos/" 
 
@@ -138,9 +138,9 @@ for channel in channels_response["items"]:
     playlistitems_list_request = youtube.playlistItems().list_next(
 playlistitems_list_request, playlistitems_list_response)
 
-  print " *  Total number of videos: " + str(count-1) + "         * "
-  print " *  Entries in the database ADDED:     * "
-  print " *************************************** "
-  print ""
+  print (" *  Total number of videos: " + str(count-1) + "         * ")
+  print (" *  Entries in the database ADDED:     * ")
+  print (" *************************************** ")
+  print ("")
 
 
