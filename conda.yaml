@@ -1,0 +1,19 @@
+name: web
+channels:
+  - gustavorabello
+  - defaults
+  - conda-forge
+dependencies:
+  - petsc=3.8.4
+  - tbb=2018_20171205
+  - boost=1.65.1
+  - gcc=4.8.5
+  - intel-openmp
+  - tetgen=1.5.0
+  - triangle=1.6
+  - flask
+  - matplotlib
+  - numpy
+  - scipy
+  - uwsgi
+  - hyde
