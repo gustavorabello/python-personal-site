@@ -192,7 +192,7 @@ def populateMusicDB():
 def genSite():
  # removing local directory paginas
 
- directory = './deploy'
+ directory = './gustavorabello.github.io'
 
  if os.path.exists(directory):
   print ("")
