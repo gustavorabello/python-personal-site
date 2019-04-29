@@ -1,15 +1,14 @@
 name: web
 channels:
-  - gustavorabello
   - defaults
   - conda-forge
 dependencies:
   - python=2.7
   - flask
   - matplotlib
-  - httplib2
-  - google-api-python-client
-  - oauth2client 
+  - conda-forge::httplib2
+  - conda-forge::google-api-python-client
+  - conda-forge::oauth2client 
   - numpy
   - scipy
   - uwsgi
