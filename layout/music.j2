@@ -8,49 +8,53 @@
 
 <div id="twoColumns">
 
-{% set counter = 1 -%}
-{% set max = 220 -%}
+{% set max = 260 -%}
 {% set half = max/2 -%}
+{% set artistname = namespace(value='name') %}
 
 
 {% for res in resource.node.walk_resources_sorted_by_time() %} 
-{% if counter < half+1 %}
+{% if loop.index < half+1 %}
 
-   {% if counter == 1  %}
+   {% if loop.index == 1  %}
     <div class="left">
    {% endif %}
 
-   {% if res.meta.artist != artistname %}
+{# 
+{{ loop.length|pprint}} 
+{{ res.meta.artist|pprint}} 
+{{ artistname.value|pprint}} 
+#}
+
+   {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
     {{ render_tab(res) }}
    {% else %}
     {{ render_tab(res) }}
    {% endif %}
 
-   {% if counter == half  %}
+   {% if loop.index == half  %}
     </div>
    {% endif %}
 
-   {% set artistname = res.meta.artist -%}
-   {% set counter = counter + 1 -%}
+   {% set artistname.value = res.meta.artist -%}
 
 
 
 {% else %}
 
-   {% if counter == half+1 %}
+   {% if loop.index == half+1 %}
     <div class="right">
    {% endif %}
 
-   {% if res.meta.artist != artistname %}
+   {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
     {{ render_tab(res) }}
    {% else %}
     {{ render_tab(res) }}
    {% endif %}
 
-   {% set artistname = res.meta.artist -%}
-   {% set counter = counter + 1 -%}
+   {% set artistname.value = res.meta.artist -%}
 
 {% endif %}
 {% endfor %}
