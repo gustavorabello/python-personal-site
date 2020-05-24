@@ -6,11 +6,11 @@ dependencies:
   - python=2.7
   - flask
   - matplotlib
-  - conda-forge::google-api-python-client
-  - conda-forge::oauth2client 
   - numpy
   - scipy
   - uwsgi
   - pip:
     - hyde
     - httplib2
+    - google-api-python-client
+    - oauth2client 
