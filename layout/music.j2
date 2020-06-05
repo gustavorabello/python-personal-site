@@ -28,9 +28,9 @@
 
    {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
-    {{ render_tab(res) }}
+    {{ render_tab(res,class=loop.index) }}
    {% else %}
-    {{ render_tab(res) }}
+    {{ render_tab(res,class=loop.index) }}
    {% endif %}
 
    {% if loop.index == half  %}
@@ -49,9 +49,9 @@
 
    {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
-    {{ render_tab(res) }}
+    {{ render_tab(res,class=loop.index) }}
    {% else %}
-    {{ render_tab(res) }}
+    {{ render_tab(res,class=loop.index) }}
    {% endif %}
 
    {% set artistname.value = res.meta.artist -%}
