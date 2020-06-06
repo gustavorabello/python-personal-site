@@ -28,9 +28,9 @@
 
    {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
-    {{ render_tab(res,class=loop.index) }}
+    {{ render_tab(res,index=loop.index) }}
    {% else %}
-    {{ render_tab(res,class=loop.index) }}
+    {{ render_tab(res,index=loop.index) }}
    {% endif %}
 
    {% if loop.index == half  %}
@@ -49,15 +49,31 @@
 
    {% if res.meta.artist != artistname.value %}
     <h1> {{ res.meta.artist }} </h1>
-    {{ render_tab(res,class=loop.index) }}
+    {{ render_tab(res,index=loop.index) }}
    {% else %}
-    {{ render_tab(res,class=loop.index) }}
+    {{ render_tab(res,index=loop.index) }}
    {% endif %}
 
    {% set artistname.value = res.meta.artist -%}
 
 {% endif %}
 {% endfor %}
+
+{# 
+<h1> Repert&oacute;rio Novo </h1>
+{% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if loop.index in [76,251,12] %}
+	<li> 
+		<span> 
+			{{loop.index}}
+		</span> 
+		<a href="{{ media_url(res.meta.dir) }}">{{ res.meta.title }}
+		</a>
+	</li>
+{% endif %}
+{% endfor %}
+#}
+
 </div>
 
 {% endblock %}
