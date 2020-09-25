@@ -49,11 +49,11 @@ context:
                 type: node
                 url: publications
             -
-                name: Tools
-                description: Tools
-                css_class: tools 
+                name: Students
+                description: Students
+                css_class: students
                 type: node
-                url: tools
+                url: students
             -
                 name: Images
                 description: Images

@@ -102,8 +102,8 @@ for channel in channels_response["items"]:
        part="contentDetails",
        id=video_id
        ).execute()
-      print ("title: " + title)
-      print ("video_id: " + video_id)
+      #print ("title: " + title)
+      #print ("video_id: " + video_id)
       #print ("description: " + description)
       duration = results["items"][0]["contentDetails"]["duration"][2:-1]
 

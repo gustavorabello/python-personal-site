@@ -1,45 +1,0 @@
----
-extends: toolspost.j2
-default_block: text
-title: Mac Tips
-created: !!timestamp '2015-11-24 09:00:00'
-tags:
-    - osx
-    - commands
----
-
-{% mark misc -%}
-
-# Change the hostname in Mac OS X:
- 
-sudo scutil --set HostName canarinho
-(http://blog.psyrendust.com/2008/05/23/change-the-hostname-in-mac-os-x-osx/)
- 
-# Update locate database:
- 
-sudo /usr/libexec/locate.updatedb
-(http://www.pakpoint.com/how-to-update-locate-database-for-mac-os-x-10-6-snow-leopard/12755/)
- 
-# Set up ssh key:
- 
-ssh-keygen -t dsa
-(http://pkeck.myweb.uga.edu/ssh/)
- 
-# Mac terminal font name:
- 
-Menlo Regular 13 pt.
- 
-# spotlight on:
-
-sudo mdutil -a -i off
- 
-# spotlight off:
-
-sudo mdutil -a -i on
- 
-# vim (replace ˆM to newline)
-
-:set magic
-:%s/<ctrl-V><ctrl-M>/\r/g
-
-{%- endmark %}

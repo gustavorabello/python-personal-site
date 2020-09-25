@@ -1,0 +1,39 @@
+{% extends "base.j2" %}
+{% from "macros.j2" import render_student with context  %}
+
+{% block main %}
+<head>
+<link rel="stylesheet" href="{{ media_url('css/students.css') }}">
+</head>
+
+<div id="singleColumns">
+
+{% set level = namespace(value='level') %}
+
+
+<h1> Ph.D. </h1>
+{% set level = namespace(value='Ph.D.') %}
+  {% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if res.meta.level == level.value %}
+    {{ render_student(res) }}
+   {% endif %}
+  {% endfor %}
+
+<h1> M.Sc. </h1>
+{% set level = namespace(value='M.Sc.') %}
+  {% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if res.meta.level == level.value %}
+    {{ render_student(res) }}
+   {% endif %}
+  {% endfor %}
+
+<h1> B.Sc. </h1>
+{% set level = namespace(value='B.Sc.') %}
+  {% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if res.meta.level == level.value %}
+    {{ render_student(res) }}
+   {% endif %}
+  {% endfor %}
+
+{% endblock %}
+

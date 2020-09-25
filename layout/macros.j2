@@ -128,6 +128,15 @@
 	</li>
 {% endmacro %}
 
+{% macro render_student(res) %}
+	<a> 
+      {{ res.meta.name }}&nbsp;<span> {{ res.meta.status }} </span>
+	</a>
+	<li> 
+      {{ res.meta.title }}, {{ res.meta.year }}
+	</li>
+{% endmacro %}
+
 {% macro render_video(res, class=None) %}
 {% refer to res.relative_path as post %}
 <article {{'class='~class if class }}>
