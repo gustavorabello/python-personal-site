@@ -129,8 +129,26 @@
 {% endmacro %}
 
 {% macro render_student(res) %}
+{% set status = namespace(value='finished') %}
 	<a> 
-      {{ res.meta.name }}&nbsp;<span> {{ res.meta.status }} </span>
+      {{ res.meta.name }}&nbsp;
+   {% if res.meta.status == status.value %}
+      <span> 
+        {{ res.meta.status }} 
+      </span>
+   {% endif %}
+    </a>
+	<li> 
+      {{ res.meta.title }}, {{ res.meta.year }}
+	</li>
+{% endmacro %}
+
+{% macro render_alumni(res) %}
+	<a> 
+      {{ res.meta.name }}&nbsp;
+      <span> 
+        {{ res.meta.status }} 
+      </span>
 	</a>
 	<li> 
       {{ res.meta.title }}, {{ res.meta.year }}
