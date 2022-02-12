@@ -74,6 +74,7 @@ for channel in channels_response["items"]:
   print ("")
   print (" *************************************** ")
   print (" *  Videos in list %s" % uploads_list_id + "  * ")
+  print ("")
 
   # Retrieve the list of videos uploaded to the authenticated user's channel.
   playlistitems_list_request = youtube.playlistItems().list(
@@ -111,6 +112,7 @@ for channel in channels_response["items"]:
 
       file = open(savedir + str(count) + ".html",'w')
       file.write("---\n")
+      print (" *  " + title)
       file.write("title: " + title + "\n")
       file.write("duration: " + duration + "\n")
       file.write("created: !!timestamp '" + date + "'\n")
@@ -138,6 +140,7 @@ for channel in channels_response["items"]:
     playlistitems_list_request = youtube.playlistItems().list_next(
 playlistitems_list_request, playlistitems_list_response)
 
+  print ("")
   print (" *  Total number of videos: " + str(count-1) + "         * ")
   print (" *  Entries in the database ADDED:     * ")
   print (" *************************************** ")
