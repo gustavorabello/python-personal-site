@@ -27,6 +27,14 @@
    {% endif %}
   {% endfor %}
 
+<h1> Undergrad Scientific Research -- IC </h1>
+{% set level = namespace(value='IC') %}
+  {% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if res.meta.level == level.value %}
+    {{ render_student(res) }}
+   {% endif %}
+  {% endfor %}
+
 <h1> B.Sc. </h1>
 {% set level = namespace(value='B.Sc.') %}
   {% for res in resource.node.walk_resources_sorted_by_time() %} 
