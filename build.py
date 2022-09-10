@@ -229,10 +229,12 @@ def updatePage():
  call(['git','pull'])
  # adding new files
  call(['git','add','.'])
- # commiting to github
+ # commiting modifications
  call(['git','commit','-a','-m','"updating site."'])
+ # pushing to github
+ call(['git','push'])
  print ("")
- print (" ---> All done! Website ready at github.")
+ print (" ---> Website ready at github.")
  print ("")
 
 def main():
