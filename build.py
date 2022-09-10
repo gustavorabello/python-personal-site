@@ -216,6 +216,25 @@ def genSite():
  print ("")
  call(['hyde','gen'])
 
+def updatePage():
+ # updating web page in github
+
+ directory = './gustavorabello.github.io'
+ os.chdir(directory)
+
+ print ("")
+ print ("Uploading to github: " + directory)
+ print ("")
+ # verifying if directory is up to date
+ call(['git','pull'])
+ # adding new files
+ call(['git','add','.'])
+ # commiting to github
+ call(['git','commit','-a','-m','"updating site."'])
+ print ("")
+ print (" ---> All done! Website ready at github.")
+ print ("")
+
 def main():
  #populateSaleDB()
  #populateRecipeDB()
@@ -223,6 +242,7 @@ def main():
  #populateImageDB()
  populateVideoDB()
  genSite()
+ updatePage()
 
 
  # completed build script
