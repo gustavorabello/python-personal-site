@@ -4,9 +4,11 @@
 #  e-mail: gustavo.rabello@gmail.com                                    #
 ## =================================================================== ##
 
+from subprocess import call
+#call(['source','activate','web'])
+
 import os,time,fnmatch,re,shutil,socket
 from datetime import datetime, timedelta
-from subprocess import call
 #from PIL import Image
 
 def populateImageDB():
