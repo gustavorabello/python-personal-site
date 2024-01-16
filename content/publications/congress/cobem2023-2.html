@@ -1,0 +1,62 @@
+---
+type: Congress 
+author: Santos, D.B.V. ; Anjos, G.R.
+title: Three Dimensional Finite Element Two-Phase Flow Simulation Using a Front Tracking Method
+congress: ENCIT
+year: 2022
+file: congress/cobem2023-2.pdf
+tags:
+    - Finite Element Method
+    - Two-phase flows
+    - Arbitrary Lagrangian-Eulerian
+    - Oscillating bubble
+    - Laplace-Beltrami
+
+---
+
+# Congress: COBEM
+
+<br>
+
+# ABSTRACT:
+
+This research aims to accurately simulate two-phase flow using the
+Finite Element Method along with a Front Tracking method for capturing
+the fluid interface. This is achieved by solving the Navier-Stokes
+equations with varying properties over the fluid domain, using two
+meshes, one representing both phases of the fluid and one representing
+the fluid interface. The fluid mesh is fixed, and it is not altered
+during the simulations. The interface mesh is advected by the velocity
+fields, and is subjected to remeshing to maintain the same node density
+in all areas. Since the interface mesh has considerably less nodes
+compared to the fixed fluid mesh, the remeshing operation does not
+increase the computational cost significantly. The two meshes are
+decoupled, they do not share any nodes. The surface tension force is
+calculated by evaluation of the interface mesh curvature by the
+Laplace-Beltrami operator. This term is added to the Navier-Stokes
+equation, and the velocity fields obtained from the FEM solution on the
+fixed fluid mesh are used to advect the interface mesh. The surface
+tension term is treated explicitly using the continuum surface force
+model, and calculated using the curvature obtained by the application of
+a finite element discretization of the Laplace-Beltrami operator to the
+interface mesh. The chosen finite element is the Mini element, in order
+to respect the LBB condition, avoiding the addition of artificial
+stabilization terms. The convective term in the Navier-Stokes equation
+is discretized through a first order semi- Lagrangian method. Fluid
+properties at the interface are smoothed through a Heaviside function to
+avoid numerical instability, over an artificial thickness of the fluid
+interface. To validate the method discussed, some test cases are pro-
+posed. The first test is the static droplet, where surface tension
+forces are balanced by the pressure gradient. In this test no velocities
+should appear, any velocity values are due to numerical errors,
+therefore the lower, the better. The second test is the oscillating
+droplet, where a droplet of fluid with a slight perturbation in its
+diameter is released with no gravity forces. The droplet should
+oscillate with a known frequency towards a spherical shape. Lastly, the
+rising bubble test case, where the gravity forces promote the bubble’s
+ascension in quiescent fluid. The bubble shape evolution can be compared
+to experimental data.
+
+[download][1]
+
+[1]:{{media_url('pdf/publications/congress/cobem2023-1.pdf')}}
