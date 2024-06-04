@@ -10,6 +10,13 @@
 
 {% set level = namespace(value='level') %}
 
+<h1> Post-Doc </h1>
+{% set level = namespace(value='Post-Doc') %}
+  {% for res in resource.node.walk_resources_sorted_by_time() %} 
+   {% if res.meta.level == level.value %}
+    {{ render_student(res) }}
+   {% endif %}
+  {% endfor %}
 
 <h1> Ph.D. </h1>
 {% set level = namespace(value='Ph.D.') %}
