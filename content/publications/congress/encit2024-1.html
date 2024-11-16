@@ -1,0 +1,46 @@
+---
+type: Congress 
+author: Santos, D.B.V. ; Anjos, G.R.
+title: Finite Element Simulation of Two-Phase flows with Heat and Mass Transfer
+Through a Decoupled Mesh Method
+congress: ENCIT
+year: 2024
+file: congress/encit2024-1.pdf
+tags:
+    - Finite Element Method
+    - Superheated Fluid
+    - Interface Tracking
+
+---
+
+# Congress: ENCIT
+
+<br>
+
+# ABSTRACT:
+
+In this work, a description of heat and mass transfer in two phase flows
+is presented, using a Lagrangian-Eulerian decoupled mesh method,
+similar to that of front tracking methods. The “one fluid” formulation
+for the incompressible Navier-Stokes equations for two-phase flows is
+solved through the Finite Element Method, coupled with the energy
+equation for a fluid without viscous dissipation and heat source. Two
+distinct meshes are used, one fixed mesh representing both fluid phases,
+and a mesh representing the fluid interface. The mini element is
+utilized in order to respect the Ladyzenskaja-Babuska-Brezzi condition
+in the fluid, thereby avoiding artificial stabilization schemes. The
+advective terms of the momentum and energy equation are discretized
+using a semi-Lagrangian method. The mass transfer will be accounted
+through an added term to the conservation of mass equation, updated at
+each time step. The fluid phases are identified through the use of a
+Heaviside function anchored at the interface. This same function is used
+to smooth fluid properties over the interface, reducing the property
+gradient and avoiding possible numerical instability. The inter- face
+curvature is calculated through the Laplace-Beltrami operator, and the
+surface tension force derived from it. The methodology is tested by
+simulating the bubble growing in superheated fluid test case and
+comparing it to existing data.
+
+[download][1]
+
+[1]:{{media_url('pdf/publications/congress/encit2024-1.pdf')}}

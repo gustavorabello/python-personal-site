@@ -16,5 +16,9 @@ dependencies:
     - oauth2client 
 
 # Mac M1
-# CONDA_SUBDIR=osx-64 conda create -n web python=2.7 flask matplotlib numpy scipy pip
+# CONDA_SUBDIR=osx-64 conda create -n web python=2.7 flask matplotlib
+# numpy scipy pip
+# pip with errors is solved by reinstalling it:
+#curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py 
+#python2.7 get-pip.py --force-reinstall
 # pip install hyde httplib2 google-api-python-client oauth2client
