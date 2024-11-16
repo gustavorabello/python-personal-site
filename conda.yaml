@@ -1,4 +1,4 @@
-name: web
+name: test
 channels:
   - defaults
   - conda-forge
@@ -22,3 +22,6 @@ dependencies:
 #curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o get-pip.py 
 #python2.7 get-pip.py --force-reinstall
 # pip install hyde httplib2 google-api-python-client oauth2client
+
+# alternative install (testing)
+# conda env create --platform osx-64 --file=conda.yaml
