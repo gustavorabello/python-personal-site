@@ -1,4 +1,4 @@
-name: test
+name: web
 channels:
   - defaults
   - conda-forge
