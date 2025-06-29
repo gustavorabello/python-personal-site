@@ -9,6 +9,7 @@
   <style>
     body {
       background: #f8f8f8;
+     	background-image: url("../../../images/background.png");
       color: #222;
       margin: 0;
       font-family: 'Merriweather', Georgia, serif;
@@ -33,8 +34,68 @@
       background: #2563eb;
       color: #fff;
     }
-    .container {
+    .fontsize-controls {
+      position: fixed;
+      top: 18px;
+      right: 24px;
+      z-index: 6000;
+      display: flex;
+      gap: 5px;
+    }
+    .fontsize-controls button {
+      font-size: 1.05em;
+      font-family: inherit;
+      padding: 5px 12px;
+      border: 1.5px solid #eaeaea;
       background: #fff;
+      color: #2563eb;
+      border-radius: 22px;
+      font-weight: 600;
+      box-shadow: 0 1px 7px #ddd;
+      cursor: pointer;
+      transition: background 0.13s, color 0.13s;
+    }
+    .fontsize-controls button:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    .key-controls {
+      position: fixed;
+      top: 100px;
+      right: 24px;
+      z-index: 6100;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .key-controls button {
+      font-size: 1.03em;
+      font-family: inherit;
+      padding: 3px 9px;
+      border: 1.5px solid #eaeaea;
+      background: #fff;
+      color: #2563eb;
+      border-radius: 22px;
+      font-weight: 600;
+      box-shadow: 0 1px 7px #ddd;
+      cursor: pointer;
+      transition: background 0.13s, color 0.13s;
+    }
+    .key-controls button:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    #current-key {
+      min-width: 46px;
+      display: inline-block;
+      text-align: center;
+      font-weight: 700;
+      color: #fc6108;
+      font-size: 1.09em;
+      letter-spacing: 1.2px;
+    }
+    .container {
+      background: #dcdcdc;
       border-radius: 12px;
       box-shadow: 0 3px 12px #ccc;
       max-width: 950px;
@@ -83,13 +144,13 @@
     }
     pre {
       font-family: 'Fira Mono', 'Menlo', 'Consolas', monospace;
-      font-size: 0.97em;
+      font-size: 0.85em;
       background: #f1f5fb;
       padding: 18px 14px 17px 20px;
       border-radius: 8px;
       margin-bottom: 18px;
       line-height: 1.15;
-      white-space: pre-wrap;
+      white-space: pre;
       color: #20253a;
     }
     .chord {
@@ -101,6 +162,9 @@
       .columns { flex-direction: column; gap: 0; }
       .col { width: 100%; }
       .singlecol pre { max-width: 98vw; }
+      .fontsize-controls, .key-controls {
+        right: 10px;
+      }
     }
     @media (max-width: 600px) {
       .container { max-width: 99vw; padding: 7vw 1vw 3vw 1vw;}
@@ -111,6 +175,15 @@
 </head>
 <body>
   <a class="back-btn" href="javascript:history.back()">&#8592; Previous Page</a>
+  <div class="fontsize-controls">
+    <button id="font-dec" title="Diminuir fonte">A-</button>
+    <button id="font-inc" title="Aumentar fonte">A+</button>
+  </div>
+  <div class="key-controls">
+    <button id="tone-dec" title="Transpor para baixo">&#8595;</button>
+    <span id="current-key">Tom</span>
+    <button id="tone-inc" title="Transpor para cima">&#8593;</button>
+  </div>
   <div class="container">
     <div class="header">
       <div class="title">Wish You Here</div>
@@ -119,10 +192,9 @@
       </div>
     </div>
     
-    <div class="singlecol">
-      <pre>
-<br/>
-<br/>
+    <div class="columns">
+      <div class="col">
+        <pre>
 INTRO: (Guitarra 1,Riff 1)
      <span class="chord">Em7</span>     <span class="chord">G</span>
 e|-|----------||----------3--3-3------3---------|-------3----3----3-----------|
@@ -131,7 +203,7 @@ e|-|----------||----------3--3-3------3---------|-------3----3----3-----------|
 <span class="chord">D</span>|-|-------0--||--2--------------2----------2---|-0-------0--0--------------0-|
 <span class="chord">A</span>|-|---0h2----||--------------------------------|-----------------------0h2---|
 <span class="chord">E</span>|-|-3--------||--------------------------------|---------3--3-------3--------|
-<br/>
+
     <span class="chord">Em7</span>      <span class="chord">G</span>
 e|-|----------3---3-3-3-3---------------|-------3-----3-----3---------------|
 <span class="chord">B</span>|-|------3---3---3-3-3-3---------------|-----3-3-----3-----3---------------|
@@ -139,7 +211,7 @@ e|-|----------3---3-3-3-3---------------|-------3-----3-----3---------------|
 <span class="chord">D</span>|-|--2--------------------2--------2---|-0-------0---------------------0---|
 <span class="chord">A</span>|-|------------------------------------|--------------------------0h2------|
 <span class="chord">E</span>|-|------------------------------------|---------3-------------3-----------|
-<br/>
+
     <span class="chord">Em7</span>      A7sus4
 e|-|------3-3-3---3-3-3-3---------------|----------3-3-3---------3-3---------|
 <span class="chord">B</span>|-|------3-3-3---3-3-3-3---------------|----------3-3-3---------3-3---------|
@@ -147,7 +219,7 @@ e|-|------3-3-3---3-3-3-3---------------|----------3-3-3---------3-3---------|
 <span class="chord">D</span>|-|--2--------------------2---0--------|------2-------2------------------0--|
 <span class="chord">A</span>|-|-------------------------------2----|--0-----------0--------------0h2----|
 <span class="chord">E</span>|-|------------------------------------|------------------------------------|
-<br/>
+
     <span class="chord">Em7</span>     A7sus4
 e|-|------3-3-3---3-3-3-3-------------|----------3-----------3---------------|
 <span class="chord">B</span>|-|------3-3-3---3-3-3-3-------------|----------3-----------3------3------3-|
@@ -155,7 +227,7 @@ e|-|------3-3-3---3-3-3-3-------------|----------3-----------3---------------|
 <span class="chord">D</span>|-|--2-------------------2---0-------|------2-2----------------2-0-0----0-0-|
 <span class="chord">A</span>|-|------------------------------2---|--0-------------0------------0h2------|
 <span class="chord">E</span>|-|----------------------------------|--------------------------------------|
-<br/>
+
       <span class="chord">G</span>           (Fim do Riff 1)
 e|-|---3-------3-------3-----------3-3-|-3-----------3-3-3-----------------|
 <span class="chord">B</span>|-|---3---3-3-3-------3-----------3-3-|-3-----------3-3-3-----------------|
@@ -163,7 +235,7 @@ e|-|---3-------3-------3-----------3-3-|-3-----------3-3-3-----------------|
 <span class="chord">D</span>|-|---0---0---0-------0-------0---0-0-|-0-------0---0-0-0-------------0---|
 <span class="chord">A</span>|-|---2---2-----------2-----------2-2-|-2-----------2-2----------0h2------|
 <span class="chord">E</span>|-|---3-----------3---3---3---------3-|-3---3---------3------3------------|
-<br/>
+
 SOLO:(Guitarra 2 acompanhado do Riff 1)
     <span class="chord">Em7</span>        <span class="chord">G</span>
 e|-|-----------|---------------------|-------------------------|
@@ -172,7 +244,7 @@ e|-|-----------|---------------------|-------------------------|
 <span class="chord">D</span>|-|-----------|---------------------|--0----------0--0--------|
 <span class="chord">A</span>|-|-----------|---------------------|-------0h2---------------|
 <span class="chord">E</span>|-|-----------|---------------------|-------------------------|
-<br/>
+
     <span class="chord">Em7</span>           <span class="chord">G</span>
 e|-|---3/5--3-----------------------------|-------------------------|
 <span class="chord">B</span>|-|---3/5--3--3/5-3p0--3/5-3p0-0---------|-------------------------|
@@ -180,7 +252,7 @@ e|-|---3/5--3-----------------------------|-------------------------|
 <span class="chord">D</span>|-|--------------------------------------|-------------------------|
 <span class="chord">A</span>|-|--------------------------------------|-------------------------|
 <span class="chord">E</span>|-|--------------------------------------|-------------------------|
-<br/>
+
     <span class="chord">Em7</span>       A7sus4
 e|-|-----------------|-----------------|-----------------------|
 <span class="chord">B</span>|-|---------3-----5-|---7p6p5---5-----|-1b2---3-5---1b2-------|
@@ -188,7 +260,7 @@ e|-|-----------------|-----------------|-----------------------|
 <span class="chord">D</span>|-|-----------------|-----------------|-----------------------|
 <span class="chord">A</span>|-|-----------------|-----------------|-----------------------|
 <span class="chord">E</span>|-|-----------------|-----------------|-----------------------|
-<br/>
+
     <span class="chord">Em7</span>          A7sus4              <span class="chord">G</span>
 e|-|------------|------------|----------|--------------------3-|
 <span class="chord">B</span>|-|-----3---5--|-6^-5---5---|----------|------------------3-3-|
@@ -196,14 +268,14 @@ e|-|------------|------------|----------|--------------------3-|
 <span class="chord">D</span>|-|------------|------------|----------|------------------0-0-|
 <span class="chord">A</span>|-|------------|------------|----------|----------------------|
 <span class="chord">E</span>|-|------------|------------|----------|----------------------|
-<br/>
+
 e|-|--3--------3-----3--------3----|
 <span class="chord">B</span>|-|--3------3-3-----3------3-3-3--|
 <span class="chord">G</span>|-|--0------0-0-----0------0-0-0--|
 <span class="chord">D</span>|-|--0------0-0-----0------0-0-0--|
 <span class="chord">A</span>|-|--2------2-------2-------------|
 <span class="chord">E</span>|-|--3------3-------3-------------|
-<br/>
+
 Verso:
 <span class="chord">C</span>                         <span class="chord">D/F#</span>
 So, so you think you can tell
@@ -217,8 +289,12 @@ Did they get you to trade, Your heroes for ghosts, Hot ashes for trees,
 Hot air for a cool breeze, Cold comfort for change? Did you exchange
                       <span class="chord">Am</span>                          <span class="chord">G</span>
 <span class="chord">A</span> walk on part in the war, For a lead role in a cage?
-<br/>
+
 SOLO:(Com scat vocal e Riff 1)
+        </pre>
+      </div>
+      <div class="col">
+        <pre>
     <span class="chord">Em7</span>           <span class="chord">G</span>
 e|-|----------------------------------------|-10/12--10---------------------|
 <span class="chord">B</span>|-|-10/12--12--10/12--12----10/12------12/-|-------------------/12--12-12--|
@@ -226,7 +302,7 @@ e|-|----------------------------------------|-10/12--10---------------------|
 <span class="chord">D</span>|-|----------------------------------------|-------------------------------|
 <span class="chord">A</span>|-|----------------------------------------|-------------------------------|
 <span class="chord">E</span>|-|----------------------------------------|-------------------------------|
-<br/>
+
     <span class="chord">Em7</span>          <span class="chord">G</span>
 e|-|-----10------------------------|-------------------------|
 <span class="chord">B</span>|-|-/12------/1211/12-12------12-|---7----------------------|
@@ -234,7 +310,7 @@ e|-|-----10------------------------|-------------------------|
 <span class="chord">D</span>|-|--------------------------------|----------7/9-----------|
 <span class="chord">A</span>|-|--------------------------------|------------------------|
 <span class="chord">E</span>|-|--------------------------------|------------------------|
-<br/>
+
     <span class="chord">Em7</span>      A7sus4
 e|-|-------10--------10-10--------------|-------12---------------------|
 <span class="chord">B</span>|-|-10/12-------/12------------15-----|-12/14--------14--/14-14-14-14-|
@@ -242,7 +318,7 @@ e|-|-------10--------10-10--------------|-------12---------------------|
 <span class="chord">D</span>|-|------------------------------------|------------------------------|
 <span class="chord">A</span>|-|------------------------------------|------------------------------|
 <span class="chord">E</span>|-|------------------------------------|------------------------------|
-<br/>
+
     <span class="chord">Em7</span>         A7sus4         <span class="chord">G</span>
 e|-|--------10-----------------------------|-------12------------------/10--||
 <span class="chord">B</span>|-|--10/12---------12----------12--------|-12/14--------1410--------/10----||
@@ -250,7 +326,7 @@ e|-|--------10-----------------------------|-------12------------------/10--||
 <span class="chord">D</span>|-|---------------------------------------|--------------------------------||
 <span class="chord">A</span>|-|---------------------------------------|--------------------------------||
 <span class="chord">E</span>|-|---------------------------------------|--------------------------------||
-<br/>
+
 Verso:
 <span class="chord">C</span>                               <span class="chord">D/F#</span>
 How I wish, how I wish you were here,
@@ -260,9 +336,9 @@ We're just two lost souls swimming in a fish bowl, Year after year,
 Running over the same old ground,  What have we found?  The same old fears,
                <span class="chord">G</span>
 Wish you were here.
-<br/>
+
 Riff 1
-<br/>
+
 SOLO:(Com Riff 1, scat vocal duplo)
     <span class="chord">G</span>         <span class="chord">Em7</span>
 e|-|--------------------------------|--------------------------------|
@@ -271,7 +347,7 @@ e|-|--------------------------------|--------------------------------|
 <span class="chord">D</span>|-|--------------------------------|--------------------------------|
 <span class="chord">A</span>|-|--------------------------------|--------------------------------|
 <span class="chord">E</span>|-|--------------------------------|--------------------------------|
-<br/>
+
     <span class="chord">G</span>     <span class="chord">Em7</span>
 e|-|---------------------|------------------------10--1210-------|
 <span class="chord">B</span>|-|----3--0--3---5------|---8---8--10--8--10/12------------/12--|
@@ -279,7 +355,7 @@ e|-|---------------------|------------------------10--1210-------|
 <span class="chord">D</span>|-|---------------------|---------------------------------------|
 <span class="chord">A</span>|-|---------------------|---------------------------------------|
 <span class="chord">E</span>|-|---------------------|---------------------------------------|
-<br/>
+
     <span class="chord">G</span>      <span class="chord">Em7</span>
 e|-|-------7---------------------|--------10-10-------10-10-------10-10-|
 <span class="chord">B</span>|-|---/12---10p8-----/12-/12----|--10/12-------10/12-------10/12-------|
@@ -287,7 +363,7 @@ e|-|-------7---------------------|--------10-10-------10-10-------10-10-|
 <span class="chord">D</span>|-|-----------------------------|--------------------------------------|
 <span class="chord">A</span>|-|-----------------------------|--------------------------------------|
 <span class="chord">E</span>|-|-----------------------------|--------------------------------------|
-<br/>
+
       A7sus4      <span class="chord">Em7</span>
 e|-|--------------12-12------------10--------12--|--------10-------------------|
 <span class="chord">B</span>|-|-10/1210-/14------------10/12-----12/14-----|--10/12-------8----8---8---8--|
@@ -295,7 +371,7 @@ e|-|--------------12-12------------10--------12--|--------10-------------------|
 <span class="chord">D</span>|-|---------------------------------------------|-----------------------------|
 <span class="chord">A</span>|-|---------------------------------------------|-----------------------------|
 <span class="chord">E</span>|-|---------------------------------------------|-----------------------------|
-<br/>
+
       (início do fade com o Riff 1)
     A7sus4    <span class="chord">G</span>     
 e|-|---------------------|---------------|-------------------------||
@@ -304,7 +380,7 @@ e|-|---------------------|---------------|-------------------------||
 <span class="chord">D</span>|-|---------------------|---------------|-------------------------||
 <span class="chord">A</span>|-|---------------------|---------------|-------------------------||
 <span class="chord">E</span>|-|---------------------|---------------|-------------------------||
-<br/>
+
 o <span class="chord">Em7</span> dessa música eh assim:
 <span class="chord">E</span>|--3----------------
 <span class="chord">B</span>|--3----------------
@@ -312,9 +388,80 @@ o <span class="chord">Em7</span> dessa música eh assim:
 <span class="chord">D</span>|-2-----------------
 <span class="chord">A</span>|-2-----------------
 <span class="chord">E</span>|-------------------
-      </pre>
+        </pre>
+      </div>
     </div>
     
   </div>
+  <script>
+  (function() {
+    // --- Transposição de acordes ---
+    const notas = ['C','C#','D','Eb','E','F','F#','G','Ab','A','Bb','B'];
+    const nota_alias = { 'Db':'C#', 'D#':'Eb', 'Gb':'F#', 'G#':'Ab', 'A#':'Bb' };
+    const baseAcordeRegex = /^([A-G](#|b)?)/;
+    let origCifras = [];
+    function getCifras() {
+      return Array.from(document.querySelectorAll('span.chord'));
+    }
+    function salvarOriginais() {
+      origCifras = getCifras().map(e => e.textContent);
+    }
+    function getTomInicial() {
+      let cifras = getCifras();
+      if (cifras.length === 0) return 'C';
+      let m = cifras[0].textContent.match(baseAcordeRegex);
+      if (!m) return 'C';
+      let base = m[1];
+      return nota_alias[base] || base;
+    }
+    function atualizarCifras(semitones) {
+      getCifras().forEach(function(el, i) {
+        let acordeOrig = origCifras[i];
+        el.textContent = acordeOrig.replace(baseAcordeRegex, function(m, nota, acc) {
+          let n = nota_alias[nota] || nota;
+          let idx = notas.indexOf(n);
+          if (idx < 0) return m;
+          let novoIdx = (idx + semitones + 12) % 12;
+          return notas[novoIdx];
+        });
+      });
+    }
+    let tomInicial = getTomInicial();
+    let offset = 0;
+    let idxTom = notas.indexOf(tomInicial);
+    if (idxTom === -1) idxTom = 0;
+    salvarOriginais();
+    function updateKeyDisplay() {
+      let novoTom = notas[(idxTom + offset + 12) % 12];
+      document.getElementById('current-key').textContent = novoTom;
+    }
+    document.getElementById('tone-inc').onclick = function() {
+      offset += 1;
+      atualizarCifras(offset);
+      updateKeyDisplay();
+    };
+    document.getElementById('tone-dec').onclick = function() {
+      offset -= 1;
+      atualizarCifras(offset);
+      updateKeyDisplay();
+    };
+    // Inicial
+    updateKeyDisplay();
+
+    // Font size controls
+    const preBlocks = document.querySelectorAll('pre');
+    let cur = { value: parseFloat(getComputedStyle(preBlocks[0]).fontSize) };
+    function setFont(newPx) {
+      preBlocks.forEach(function(el) { el.style.fontSize = newPx + 'px'; });
+      cur.value = newPx;
+    }
+    document.getElementById('font-inc').onclick = function() {
+      setFont(Math.min(cur.value + 2, 40));
+    };
+    document.getElementById('font-dec').onclick = function() {
+      setFont(Math.max(cur.value - 2, 10));
+    };
+  })();
+  </script>
 </body>
 </html>
