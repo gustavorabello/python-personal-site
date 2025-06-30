@@ -23,11 +23,11 @@ def populateImageDB():
  # loop all files
  for arq in os.listdir(dirname):
 
-  if fnmatch.fnmatch(arq, '*.txt'): 
+  if fnmatch.fnmatch(arq, '*.txt'):
    # spliting base name and extension
    basename = os.path.splitext(arq)[0]
    filename = basename + '.png'
-     
+
    fopen = open(dirname+arq,'r')
    line = fopen.readlines()
 
@@ -35,14 +35,14 @@ def populateImageDB():
    dim   = line[2].split('\n')[0]
    date  = line[4].split('\n')[0]
    text  = line[6].split('\n')[0]
-   
+
    # saving in the database
    img = Image(filename=filename,
-               title=title, 
-               dimension=dim, 
+               title=title,
+               dimension=dim,
                date=date,
                text=text)
-  
+
    print ("  " + filename + " " + title + " " + dim + " " + date + " " + text)
 
  print ("")
@@ -62,12 +62,12 @@ def populateRecipeDB():
  # loop all files
  for arq in os.listdir(dirname):
 
-  if fnmatch.fnmatch(arq, '*.txt'): 
+  if fnmatch.fnmatch(arq, '*.txt'):
    # spliting base name and extension
    basename = os.path.splitext(arq)[0]
    filename = basename + '.png'
    infoname = basename + '.html'
-     
+
    fopen = open(dirname+arq,'r')
    line = fopen.readlines()
 
@@ -80,7 +80,7 @@ def populateRecipeDB():
                 image=filename,
                 date=date,
                 info=infoname)
-  
+
    print ("  " + obj + " " + filename + " " + date + " " + infoname)
 
  print ("")
@@ -101,11 +101,11 @@ def populateSaleDB():
  # loop all files
  for arq in os.listdir(dirname):
 
-  if fnmatch.fnmatch(arq, '*.txt'): 
+  if fnmatch.fnmatch(arq, '*.txt'):
    # spliting base name and extension
    basename = os.path.splitext(arq)[0]
    filename = basename + '.png'
-     
+
    fopen = open(dirname+arq,'r')
    line = fopen.readlines()
 
@@ -142,13 +142,13 @@ def populateMusicDB():
   # loop inside each folder
   if os.path.isdir(os.path.join(dirname, artistname)):
    for infile in sorted(os.listdir(dirname+artistname)):
-    if fnmatch.fnmatch(infile, '*.html'): 
+    if fnmatch.fnmatch(infile, '*.html'):
      # spliting base name and extension
      basename = os.path.splitext(infile)[0]
      #print (dirname+artistname+'/'+infile)
      a = datetime.now() - timedelta(seconds=count)
      timestamp = time.strftime(str(a))
-     
+
      # HTML files should be formatted as follow:
      # oCarderno.html,
      # maisQueNada.html,
@@ -159,17 +159,17 @@ def populateMusicDB():
      splitsongname = re.sub(r'(?<=.)([A-Z])', r' \1', basename).split()
 
      songname=''
-     for name in splitsongname: 
+     for name in splitsongname:
      # function: my Name Is Gustavo --> My Name Is Gustavo
       songname += name.title() + " "
- 
+
      splitartistname = re.sub(r'(?<=.)([A-Z])', r' \1', artistname).split()
- 
+
      artist=''
-     for name in splitartistname: 
+     for name in splitartistname:
       # function: toquinho E Vinicius --> Toquinho E Vinicius
       artist += name.title() + " "
- 
+
      savedir = "content/musics/" + artistname + "/"
      if not os.path.exists(savedir):
       os.makedirs(savedir)
@@ -184,7 +184,7 @@ def populateMusicDB():
      file.write("---\n")
      file.close()
      count = count + 1
- 
+
  print ("")
  print (" *  Total number of musics: " + str(count) + "        * ")
  print (" *  Finished: music folder completed!  * ")
