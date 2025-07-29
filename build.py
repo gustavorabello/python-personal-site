@@ -136,6 +136,13 @@ def populateMusicDB():
  print (" *   Adding entries to music folder:   * ")
  print ("")
 
+ # delete all folders in content/musics to be further processed
+ musics_dir = "content/musics"
+ for name in os.listdir(musics_dir):
+   full_path = os.path.join(musics_dir, name)
+   if os.path.isdir(full_path):
+     shutil.rmtree(full_path)
+
  count = 1
  # loop all artist's folder
  for artistname in sorted(os.listdir(dirname)):
