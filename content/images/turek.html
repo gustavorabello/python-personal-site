@@ -1,0 +1,38 @@
+---
+title: Turek Fluid-Structure Interaction
+created: !!timestamp '2025-08-27 10:00:00'
+tags:
+    - single-phase
+    - 2d
+    - turek
+---
+
+{% mark image -%}
+
+![disk]([[!!images/turek.png]])
+
+{%- endmark %}
+
+{% mark excerpt -%}
+
+This figure shows the numerical validation of a benchmark problem originally
+proposed by Turek and colleagues for flow around a circular cylinder with an
+attached downstream bar. The color map represents the velocity magnitude, with
+blue indicating low values and red to yellow showing higher velocities. The
+flow accelerates around the sides of the obstacle and develops a wake
+characterized by recirculation and shear layers, consistent with the reference
+benchmark.
+
+{%- endmark %}
+
+The unstructured quadrilateral finite element mesh is also visible, capturing
+both the cylinder and the narrow bar with good resolution in the boundary layer
+and wake regions. The velocity scale on the right confirms a normalized maximum
+around 2.0, matching the expected Turek validation range. Numerical results
+such as drag, lift, and pressure drop can be compared directly with the Turek
+paper to ensure accuracy of the solver. The mesh adapts well to the geometry,
+showing refinement near solid boundaries and coarser elements far from the
+obstacle. This setup is widely used to test stability and accuracy of ALE–FEM
+formulations in computational fluid dynamics. The qualitative agreement of the
+flow pattern and velocity distribution demonstrates correct implementation of
+the solver.
