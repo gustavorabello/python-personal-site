@@ -11,44 +11,103 @@
 {% set level = namespace(value='level') %}
 
 <h1> Post-Doc </h1>
-{% set level = namespace(value='Post-Doc') %}
-  {% for res in resource.node.walk_resources_sorted_by_time() %} 
-   {% if res.meta.level == level.value %}
-    {{ render_student(res) }}
-   {% endif %}
-  {% endfor %}
+{% set level = 'Post-Doc' %}
+{# total apenas de finished #}
+{% set total = resource.node.walk_resources_sorted_by_time()
+                 | selectattr('meta.level', 'equalto', level)
+                 | selectattr('meta.status', 'equalto', 'finished')
+                 | list
+                 | length %}
+{% set count = namespace(value = total + 1) %}
+
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+  {% if res.meta.level == level %}
+    {% if res.meta.status == 'finished' %}
+      {% set count.value = count.value - 1 %}
+      {{ render_student(res, index=count.value) }}
+    {% else %}
+      {{ render_student(res) }}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 <h1> Ph.D. </h1>
-{% set level = namespace(value='Ph.D.') %}
-  {% for res in resource.node.walk_resources_sorted_by_time() %} 
-   {% if res.meta.level == level.value %}
-    {{ render_student(res) }}
-   {% endif %}
-  {% endfor %}
+{% set level = 'Ph.D.' %}
+{# total apenas de finished #}
+{% set total = resource.node.walk_resources_sorted_by_time()
+                 | selectattr('meta.level', 'equalto', level)
+                 | selectattr('meta.status', 'equalto', 'finished')
+                 | list
+                 | length %}
+{% set count = namespace(value = total + 1) %}
+
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+  {% if res.meta.level == level %}
+    {% if res.meta.status == 'finished' %}
+      {% set count.value = count.value - 1 %}
+      {{ render_student(res, index=count.value) }}
+    {% else %}
+      {{ render_student(res) }}
+    {% endif %}
+  {% endif %}
+{% endfor %}  
 
 <h1> M.Sc. </h1>
-{% set level = namespace(value='M.Sc.') %}
-  {% for res in resource.node.walk_resources_sorted_by_time() %} 
-   {% if res.meta.level == level.value %}
-    {{ render_student(res) }}
-   {% endif %}
-  {% endfor %}
+{% set level = 'M.Sc.' %}
+{% set total = resource.node.walk_resources_sorted_by_time()
+                 | selectattr("meta.level", "equalto", level)
+                 | selectattr("meta.status", "equalto", "finished")
+                 | list
+                 | length %}
+{% set count = namespace(value=total + 1) %}
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+  {% if res.meta.level == level %}
+    {% if res.meta.status == 'finished' %}
+      {% set count.value = count.value - 1 %}
+      {{ render_student(res, index=count.value) }}
+    {% else %}
+      {{ render_student(res) }}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 <h1> Undergrad Scientific Research -- IC </h1>
-{% set level = namespace(value='IC') %}
-  {% for res in resource.node.walk_resources_sorted_by_time() %} 
-   {% if res.meta.level == level.value %}
-    {{ render_student(res) }}
-   {% endif %}
-  {% endfor %}
+{% set level = 'IC' %}
+{% set total = resource.node.walk_resources_sorted_by_time()
+                 | selectattr("meta.level", "equalto", level)
+                 | selectattr("meta.status", "equalto", "finished")
+                 | list
+                 | length %}
+{% set count = namespace(value=total + 1) %}
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+  {% if res.meta.level == level %}
+    {% if res.meta.status == 'finished' %}
+      {% set count.value = count.value - 1 %}
+      {{ render_student(res, index=count.value) }}
+    {% else %}
+      {{ render_student(res) }}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 <h1> B.Sc. </h1>
-{% set level = namespace(value='B.Sc.') %}
-  {% for res in resource.node.walk_resources_sorted_by_time() %} 
-   {% if res.meta.level == level.value %}
-    {{ render_student(res) }}
-   {% endif %}
-  {% endfor %}
+{% set level = 'B.Sc.' %}
+{% set total = resource.node.walk_resources_sorted_by_time()
+                 | selectattr("meta.level", "equalto", level)
+                 | selectattr("meta.status", "equalto", "finished")
+                 | list
+                 | length %}
+{% set count = namespace(value=total + 1) %}
+{% for res in resource.node.walk_resources_sorted_by_time() %}
+  {% if res.meta.level == level %}
+    {% if res.meta.status == 'finished' %}
+      {% set count.value = count.value - 1 %}
+      {{ render_student(res, index=count.value) }}
+    {% else %}
+      {{ render_student(res) }}
+    {% endif %}
+  {% endif %}
+{% endfor %}
 
 {% endblock %}
 
