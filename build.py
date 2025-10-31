@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ## =================================================================== ##
 #  this is file setup.py, created at 30-Oct-2011                #
 #  maintained by Gustavo Rabello dos Anjos                              #
@@ -198,6 +199,38 @@ def populateMusicDB():
  print (" *************************************** ")
  print ("")
 
+
+def removeDuplicates(root='.'):
+    """
+    Remove arquivos duplicados terminando em:
+    ' 2.html', ' 3.html', ' 4.html', ' 5.html'
+    (recursivo a partir de 'root')
+    Compatível com Python 2.7.15
+    """
+    suffixes = [' 2.html', ' 3.html', ' 4.html', ' 5.html']
+    total_removed = 0
+
+    for dirpath, dirnames, filenames in os.walk(root):
+        for name in filenames:
+            for suf in suffixes:
+                if name.endswith(suf):
+                    fullpath = os.path.join(dirpath, name)
+                    try:
+                        os.remove(fullpath)
+                        print(u'🗑️  Removido: {}'.format(fullpath))
+                        total_removed += 1
+                    except Exception as e:
+                        print(u'⚠️  Erro ao remover {}: {}'.format(fullpath, e))
+                    break  # evita checar outros sufixos
+
+    print(u'\n✅ Total de arquivos removidos: {}'.format(total_removed))
+
+
+# Exemplo de uso:
+# removeDuplicates('/Users/gustavo/projects/python/personal-site/content')
+# ou simplesmente:
+# removeDuplicates()
+
 def genSite():
  # removing local directory paginas
 
@@ -247,6 +280,7 @@ def updatePage():
  print ("")
 
 def main():
+ removeDuplicates()
  #populateSaleDB()
  #populateRecipeDB()
  populateMusicDB()
