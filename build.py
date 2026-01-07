@@ -1,297 +1,232 @@
 # -*- coding: utf-8 -*-
-## =================================================================== ##
-#  this is file setup.py, created at 30-Oct-2011                #
-#  maintained by Gustavo Rabello dos Anjos                              #
-#  e-mail: gustavo.rabello@gmail.com                                    #
-## =================================================================== ##
+"""
+build.py — site builder (Python 2.7 compatible)
 
-from subprocess import call
-#call(['source','activate','web'])
+Optimized, structured and highly visual output.
+Compatible with Hyde + Python 2.7.15
+"""
 
-import os,time,fnmatch,re,shutil,socket
+from __future__ import print_function
+
+import os
+import fnmatch
+import re
+import shutil
+import subprocess
+import time
 from datetime import datetime, timedelta
-#from PIL import Image
 
-def populateImageDB():
+# ============================================================
+# ANSI colors (Python 2.7 friendly)
+# ============================================================
 
- dirname = 'static/figures/'
+class C:
+    END  = '\033[0m'
+    BOLD = '\033[1m'
 
- print ("")
- print (" ************************************* ")
- print (" *  Adding entries to the database:  * ")
- print ("")
-
- # loop all files
- for arq in os.listdir(dirname):
-
-  if fnmatch.fnmatch(arq, '*.txt'):
-   # spliting base name and extension
-   basename = os.path.splitext(arq)[0]
-   filename = basename + '.png'
-
-   fopen = open(dirname+arq,'r')
-   line = fopen.readlines()
-
-   title = line[0].split('\n')[0]
-   dim   = line[2].split('\n')[0]
-   date  = line[4].split('\n')[0]
-   text  = line[6].split('\n')[0]
-
-   # saving in the database
-   img = Image(filename=filename,
-               title=title,
-               dimension=dim,
-               date=date,
-               text=text)
-
-   print ("  " + filename + " " + title + " " + dim + " " + date + " " + text)
-
- print ("")
- print (" *  Entries in the database ADDED!   * ")
- print (" ************************************* ")
- print ("")
-
-def populateRecipeDB():
-
- dirname = 'static/recipes/'
-
- print ("")
- print (" ************************************* ")
- print (" *  Adding entries to the database:  * ")
- print ("")
-
- # loop all files
- for arq in os.listdir(dirname):
-
-  if fnmatch.fnmatch(arq, '*.txt'):
-   # spliting base name and extension
-   basename = os.path.splitext(arq)[0]
-   filename = basename + '.png'
-   infoname = basename + '.html'
-
-   fopen = open(dirname+arq,'r')
-   line = fopen.readlines()
-
-   obj = line[0].split('\n')[0]
-   date = line[2].split('\n')[0]
-   info = line[4].split('\n')[0]
-
-   # saving in the database
-   rec = Recipe(obj=obj,
-                image=filename,
-                date=date,
-                info=infoname)
-
-   print ("  " + obj + " " + filename + " " + date + " " + infoname)
-
- print ("")
- print (" *  Entries in the database ADDED!   * ")
- print (" ************************************* ")
- print ("")
+    BLUE   = '\033[94m'
+    GREEN  = '\033[92m'
+    YELLOW = '\033[93m'
+    RED    = '\033[91m'
+    MAG    = '\033[95m'
+    DIM    = '\033[2m'
 
 
-def populateSaleDB():
+def title(msg):
+    print(C.MAG + C.BOLD + "\n✨ " + msg + C.END)
 
- dirname = 'static/sales/'
+def info(msg):
+    print(C.BLUE + "ℹ  " + msg + C.END)
 
- print ("")
- print (" ************************************* ")
- print (" *  Adding entries to the database:  * ")
- print ("")
+def ok(msg):
+    print(C.GREEN + "✔  " + msg + C.END)
 
- # loop all files
- for arq in os.listdir(dirname):
+def warn(msg):
+    print(C.YELLOW + "⚠  " + msg + C.END)
 
-  if fnmatch.fnmatch(arq, '*.txt'):
-   # spliting base name and extension
-   basename = os.path.splitext(arq)[0]
-   filename = basename + '.png'
+def err(msg):
+    print(C.RED + "✖  " + msg + C.END)
 
-   fopen = open(dirname+arq,'r')
-   line = fopen.readlines()
+def step(msg):
+    print(C.BLUE + "➡  " + msg + C.END)
 
-   obj = line[0].split('\n')[0]
-   info = line[2].split('\n')[0]
-   cond = line[4].split('\n')[0]
-   link = line[6].split('\n')[0]
-   original = line[8].split('\n')[0]
-   price = line[10].split('\n')[0]
-
-   print ("   " + filename + " " + info + " " + cond \
-         + " " + link + " " + original + " " + price)
-
- print ("")
- print (" *  Entries in the database ADDED!   * ")
- print (" ************************************* ")
- print ("")
-
-def populateVideoDB():
- import youtube
-
-def populateMusicDB():
-
- dirname = 'content/media/html/tabs/'
-
- print ("")
- print (" *************************************** ")
- print (" *   Adding entries to music folder:   * ")
- print ("")
-
- # delete all folders in content/musics to be further processed
- musics_dir = "content/musics"
- for name in os.listdir(musics_dir):
-   full_path = os.path.join(musics_dir, name)
-   if os.path.isdir(full_path):
-     shutil.rmtree(full_path)
-
- count = 1
- # loop all artist's folder
- for artistname in sorted(os.listdir(dirname)):
-  # loop inside each folder
-  if os.path.isdir(os.path.join(dirname, artistname)):
-   for infile in sorted(os.listdir(dirname+artistname)):
-    if fnmatch.fnmatch(infile, '*.html'):
-     # spliting base name and extension
-     basename = os.path.splitext(infile)[0]
-     #print (dirname+artistname+'/'+infile)
-     a = datetime.now() - timedelta(seconds=count)
-     timestamp = time.strftime(str(a))
-
-     # HTML files should be formatted as follow:
-     # oCarderno.html,
-     # maisQueNada.html,
-     # escravoDaAlegria.html etc.
-     #
-     # spliting basename in several words, ex:
-     # myNameIsGustavo ---> my Name Is Gustavo
-     splitsongname = re.sub(r'(?<=.)([A-Z])', r' \1', basename).split()
-
-     songname=''
-     for name in splitsongname:
-     # function: my Name Is Gustavo --> My Name Is Gustavo
-      songname += name.title() + " "
-
-     splitartistname = re.sub(r'(?<=.)([A-Z])', r' \1', artistname).split()
-
-     artist=''
-     for name in splitartistname:
-      # function: toquinho E Vinicius --> Toquinho E Vinicius
-      artist += name.title() + " "
-
-     savedir = "content/musics/" + artistname + "/"
-     if not os.path.exists(savedir):
-      os.makedirs(savedir)
-
-     file = open(savedir + basename + ".html",'w')
-     file.write("---\n")
-     file.write("artist: " + artist + "\n")
-     file.write("title: " + songname + "\n")
-     file.write("type: music" + "\n")
-     file.write("dir: html/tabs/" + artistname + "/" + basename + ".html\n")
-     file.write("created: !!timestamp '" + timestamp + "'\n")
-     file.write("---\n")
-     file.close()
-     count = count + 1
-
- print ("")
- print (" *  Total number of musics: " + str(count) + "        * ")
- print (" *  Finished: music folder completed!  * ")
- print (" *************************************** ")
- print ("")
+def hr():
+    print(C.DIM + "-" * 70 + C.END)
 
 
-def removeDuplicates(root='.'):
+# ============================================================
+# Config
+# ============================================================
+
+TABS_HTML_DIR = "content/media/html/tabs"
+MUSICS_DIR    = "content/musics"
+PUBLIC_DIR    = "./gustavorabello.github.io"
+
+DUP_SUFFIXES = [' 2.html', ' 3.html', ' 4.html', ' 5.html']
+
+
+# ============================================================
+# Helpers
+# ============================================================
+
+def run(cmd, cwd=None):
+    step("Running command")
+    print(C.DIM + "   $ " + " ".join(cmd) + C.END)
+    if cwd:
+        print(C.DIM + "   cwd: " + cwd + C.END)
+    ret = subprocess.call(cmd, cwd=cwd)
+    if ret != 0:
+        raise RuntimeError("Command failed: " + " ".join(cmd))
+
+
+def split_camel(name):
     """
-    Remove arquivos duplicados terminando em:
-    ' 2.html', ' 3.html', ' 4.html', ' 5.html'
-    (recursivo a partir de 'root')
-    Compatível com Python 2.7.15
+    sambaEPagode -> Samba E Pagode
+    oMeuLugar    -> O Meu Lugar
     """
-    suffixes = [' 2.html', ' 3.html', ' 4.html', ' 5.html']
-    total_removed = 0
+    parts = re.sub(r'(?<=.)([A-Z])', r' \1', name).split()
+    return " ".join(p.capitalize() for p in parts)
+
+
+# ============================================================
+# Tasks
+# ============================================================
+
+def remove_duplicates(root='.'):
+    title("Removing duplicate HTML files")
+    count = 0
 
     for dirpath, dirnames, filenames in os.walk(root):
-        for name in filenames:
-            for suf in suffixes:
-                if name.endswith(suf):
-                    fullpath = os.path.join(dirpath, name)
+        for fname in filenames:
+            for suf in DUP_SUFFIXES:
+                if fname.endswith(suf):
+                    path = os.path.join(dirpath, fname)
                     try:
-                        os.remove(fullpath)
-                        print(u'🗑️  Removido: {}'.format(fullpath))
-                        total_removed += 1
+                        os.remove(path)
+                        ok("Removed: " + path)
+                        count += 1
                     except Exception as e:
-                        print(u'⚠️  Erro ao remover {}: {}'.format(fullpath, e))
-                    break  # evita checar outros sufixos
+                        warn("Failed removing " + path + ": " + str(e))
+                    break
 
-    print(u'\n✅ Total de arquivos removidos: {}'.format(total_removed))
+    hr()
+    ok("Total removed: %d" % count)
 
 
-# Exemplo de uso:
-# removeDuplicates('/Users/gustavo/projects/python/personal-site/content')
-# ou simplesmente:
-# removeDuplicates()
+def populate_music_db():
+    title("Populating music database")
 
-def genSite():
- # removing local directory paginas
+    if not os.path.isdir(TABS_HTML_DIR):
+        err("Tabs directory not found: " + TABS_HTML_DIR)
+        return
 
- directory = './gustavorabello.github.io'
+    # Clear musics dir
+    if os.path.isdir(MUSICS_DIR):
+        warn("Cleaning musics directory")
+        for d in os.listdir(MUSICS_DIR):
+            full = os.path.join(MUSICS_DIR, d)
+            if os.path.isdir(full):
+                shutil.rmtree(full)
+                ok("Deleted: " + full)
+    else:
+        os.makedirs(MUSICS_DIR)
 
- if os.path.exists(directory):
-  print ("")
-  print ("Removing contents in " + directory)
-  for dirs in os.listdir(directory):
-   if os.path.isdir(directory + '/' + dirs) and dirs != '.git':
-    shutil.rmtree(directory + '/' + dirs)
-    print ("Deleting directory " + dirs)
-   else: # it is a file
-    if dirs != '.gitignore' and dirs != '.git':
-     print ("Deleting file " + dirs)
-     os.remove(directory + '/' + dirs)
- else:
-  print ("")
-  print ("Creating " + directory)
-  os.makedirs(directory)
+    count = 0
+    now = datetime.now()
 
- # generating webpage into paginas folder
- print ("")
- print ("Generating website at " + directory)
- print ("")
- call(['hyde','gen'])
+    for artist in sorted(os.listdir(TABS_HTML_DIR)):
+        artist_dir = os.path.join(TABS_HTML_DIR, artist)
+        if not os.path.isdir(artist_dir):
+            continue
 
-def updatePage():
- # updating web page in github
+        for fname in sorted(os.listdir(artist_dir)):
+            if not fname.endswith(".html"):
+                continue
 
- directory = './gustavorabello.github.io'
- os.chdir(directory)
+            basename = os.path.splitext(fname)[0]
 
- print ("")
- print ("Uploading to github: " + directory)
- print ("")
- # verifying if directory is up to date
- call(['git','pull'])
- # adding new files
- call(['git','add','.'])
- # commiting modifications
- call(['git','commit','-a','-m','"updating site."'])
- # pushing to github
- call(['git','push'])
- print ("")
- print (" ---> Website ready at github.")
- print ("")
+            artist_pretty = split_camel(artist)
+            title_pretty  = split_camel(basename)
+
+            out_dir = os.path.join(MUSICS_DIR, artist)
+            if not os.path.isdir(out_dir):
+                os.makedirs(out_dir)
+
+            ts = now - timedelta(seconds=count)
+            timestamp = ts.strftime("%Y-%m-%d %H:%M:%S")
+
+            out_file = os.path.join(out_dir, basename + ".html")
+            f = open(out_file, "w")
+            f.write("---\n")
+            f.write("artist: %s\n" % artist_pretty)
+            f.write("title: %s\n" % title_pretty)
+            f.write("type: music\n")
+            f.write("dir: html/tabs/%s/%s.html\n" % (artist, basename))
+            f.write("created: !!timestamp '%s'\n" % timestamp)
+            f.write("---\n")
+            f.close()
+
+            count += 1
+            if count <= 10 or count % 50 == 0:
+                ok("Music: %s — %s" % (artist_pretty, title_pretty))
+
+    hr()
+    ok("Total musics generated: %d" % count)
+
+
+def gen_site():
+    title("Generating website")
+
+    if os.path.exists(PUBLIC_DIR):
+        warn("Cleaning public directory")
+        for name in os.listdir(PUBLIC_DIR):
+            if name in ('.git', '.gitignore'):
+                continue
+            path = os.path.join(PUBLIC_DIR, name)
+            if os.path.isdir(path):
+                shutil.rmtree(path)
+                ok("Deleted dir: " + name)
+            else:
+                os.remove(path)
+                ok("Deleted file: " + name)
+    else:
+        os.makedirs(PUBLIC_DIR)
+
+    run(['hyde', 'gen'])
+    ok("Website generated")
+
+
+def update_page():
+    title("Publishing to GitHub")
+
+    run(['git', 'pull'], cwd=PUBLIC_DIR)
+    run(['git', 'add', '.'], cwd=PUBLIC_DIR)
+
+    ret = subprocess.call(
+        ['git', 'commit', '-a', '-m', 'updating site.'],
+        cwd=PUBLIC_DIR
+    )
+    if ret != 0:
+        warn("Nothing to commit")
+
+    run(['git', 'push'], cwd=PUBLIC_DIR)
+    ok("Website published")
+
+
+# ============================================================
+# Main
+# ============================================================
 
 def main():
- removeDuplicates()
- #populateSaleDB()
- #populateRecipeDB()
- populateMusicDB()
- #populateImageDB()
- populateVideoDB()
- genSite()
- updatePage()
+    title("Gustavo's Build Pipeline (Python 2.7)")
 
+    remove_duplicates()
+    populate_music_db()
+    gen_site()
+    update_page()
 
- # completed build script
- print (u"All done running build.py.")
+    hr()
+    ok("All done running build.py")
 
 
 if __name__ == "__main__":
